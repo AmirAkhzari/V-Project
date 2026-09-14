@@ -1,0 +1,26 @@
+string; status: "success" | "failed" };
+
+function Screen7({ onTab, walletBalance, transactions, toast, onTopUp, onAddresses }: {
+  onTab: (t: "home" | "cart" | "orders" | "profile") => void;
+  walletBalance: number;
+  transactions: WalletTransaction[];
+  toast?: string;
+  onTopUp: () => void;
+  onAddresses: () => void;
+}) {
+  const [localToast, setLocalToast] = useState("");
+  const showSoon = (label: string) => {
+    setLocalToast(`${label} به‌زودی فعال می‌شود`);
+    setTimeout(() => setLocalToast(""), 2200);
+  };
+  const menuItems: { label: string; Icon: any; onPress: () => void }[] = [
+    { label: "سفارش‌ها", Icon: Ic.Receipt, onPress: () => onTab("orders") },
+    { label: "آدرس‌ها", Icon: () => <Ic.MapPin size={20} color="#9B9B9B" />, onPress: onAddresses },
+    { label: "کدهای تخفیف", Icon: Ic.Tag, onPress: () => showSoon("کدهای تخفیف") },
+    { label: "کارت‌های هدیه", Icon: Ic.Gift, onPress: () => showSoon("کارت‌های هدیه") },
+    { label: "تماس با پشتیبانی", Icon: Ic.Headset, onPress: () => showSoon("پشتیبانی") },
+  ];
+
+  return (
+    <MobileShell bg="#F5F5F5">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto", position: "relative" }}>

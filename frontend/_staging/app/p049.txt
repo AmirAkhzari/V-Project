@@ -1,0 +1,18 @@
+            <div style={{ flex: 1 }}>
+                <div style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF }}>دوستاتو دعوت کن</div>
+                <div style={{ ...T.h3, color: "#1C3F6E", fontFamily: FF, marginTop: 3 }}>۱۲۰ هزار تومان هدیه بگیر</div>
+                <button style={{ marginTop: 10, background: "#1C3F6E", border: "none", color: "#fff", ...T.label, fontFamily: FF, padding: "7px 16px", borderRadius: 20, cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}>
+                  دعوت از دوستان
+                  <Ic.ChevronLeft size={12} color="#fff" />
+                </button>
+              </div>
+              {/* LEFT end: icon tile */}
+              <div style={{ width: 52, height: 52, borderRadius: 14, background: "#1C3F6E", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Ic.Megaphone color="#fff" />
+              </div>
+            </div>
+
+            {/* Carousel dots */}
+            <div style={{ display: "flex", justifyContent: "center", gap: 5 }}>
+              <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#E3E3E3" }} />
+              <div style={{ width: 20, height:

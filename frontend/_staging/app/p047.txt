@@ -1,0 +1,16 @@
+        {(toast || localToast) && (
+          <div style={{ position: "absolute", top: 10, left: 20, right: 20, zIndex: 4, background: toast ? "#F0FDF4" : "#EEF4FF", border: toast ? "1px solid #BBF7D0" : "1px solid #BFDBFE", color: toast ? "#15803D" : "#1C3F6E", borderRadius: 12, padding: "10px 14px", fontSize: 12, fontWeight: 700, fontFamily: FF, textAlign: "right" }}>{toast || localToast}</div>
+        )}
+        <div style={{ padding: "8px 20px 0" }}>
+
+          {/* Profile card */}
+          <div style={{ background: "#fff", borderRadius: 20, padding: "20px", marginBottom: 12 }}>
+
+            {/* RTL row: avatar+name on the RIGHT (start), edit button on the LEFT (end) */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+              {/* LEFT end: edit button */}
+              <button style={{ display: "flex", alignItems: "center", gap: 6, color: "#2AA9E0", ...T.label, fontFamily: FF, background: "none", border: "none", cursor: "pointer" }}>
+                ویرایش
+                <Ic.Pencil color="#2AA9E0" />
+              </button>
+              {/* RIGHT start: avatar then name (avatar is outermost = rightm
