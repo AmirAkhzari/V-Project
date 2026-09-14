@@ -1,0 +1,26 @@
+Phone color={phone ? "#1C3F6E" : "#C8C8C8"} size={18} />
+            </div>
+          </div>
+          {error && (
+            <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 6 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5342E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
+              <span style={{ ...T.caption, color: "#E5342E", fontFamily: FF }}>لطفا این قسمت را خالی نگذارید</span>
+            </div>
+          )}
+        </div>
+
+        {/* Member hint */}
+        <div style={{ background: "#FAFAFA", borderRadius: 14, padding: "14px 16px", marginTop: 8, borderRight: "3px solid #1C3F6E" }}>
+          <div style={{ ...T.bodyMd, color: "#1A1A1A", fontFamily: FF, marginBottom: 4 }}>
+            عضو <span style={{ color: "#1C3F6E" }}>ویزیتور</span> هستید؟
+          </div>
+          <div style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF, lineHeight: 1.7 }}>
+            با شماره موبایل ویزیتورتان وارد شوید تا آدرس‌هایتان را ببینید.
+          </div>
+        </div>
+
+        <div style={{ flex: 1 }} />
+
+        <button
+          onClick={handleContinue}
+     
