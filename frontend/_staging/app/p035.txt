@@ -1,0 +1,20 @@
+8" />
+          <rect width="375" height="812" fill="url(#grid)" />
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E4E6DC" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          {/* Blocks */}
+          {[[28,95,55,70],[95,85,80,75],[188,78,95,80],[28,195,50,70],[95,290,75,55],[185,285,90,60],[288,185,65,60],[30,370,80,50],[130,365,70,45]].map(([x,y,w,h],i) => (
+            <rect key={i} x={x} y={y} width={w} height={h} rx={4} fill="#E0DDD6" stroke="#D4D1CA" strokeWidth="0.5" />
+          ))}
+          {/* Roads */}
+          <rect x="0" y="178" width="375" height="10" fill="#FFF9EE" />
+          <rect x="0" y="278" width="375" height="10" fill="#FFF9EE" />
+          <rect x="78" y="0" width="10" height="812" fill="#FFF9EE" />
+          <rect x="178" y="0" width="10" height="812" fill="#FFF9EE" />
+          <rect x="288" y="0" width="10" height="812" fill="#FFF9EE" />
+          {/* Road labels */}
+          <text x="180" y="174" fontSize="9" fill="#B0AA9F" fontFamily="Vazirmatn, sans-serif" textAnchor="middle">خ. فردوسی</text>
+          <text x="180
