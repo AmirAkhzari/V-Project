@@ -1,7 +1,7 @@
 ustration) so illustration sits roughly at vertical-center-upper-third.
 
 ### 2.7 Product / Promo Card (Horizontal Carousel)
-Used in Home "شگفت‌انگیز" (Amazing Deals) rail: white card, 12px radius, top-left discount badge (**orange** pill — `brand.orange.badge`, replacing the green badge seen in the reference screenshot — % value + "تخفیه‌پذیر" eco tag optional, eco tag pill uses `brand.orange.tint` background), product image centered, floating circular "+" add-to-cart button (**orange** outline — `brand.orange.primary`, replacing the green outline in the reference, bottom-right of image), price block below (current price bold + strikethrough original price in gray, currency unit "تومان" as small superscript-style glyph next to number).
+Used in Home "شگفت‌انگیز" (Amazing Deals) rail: white card, 12px radius, top-left discount badge (**orange** pill — `brand.orange.badge`, replacing the green badge seen in the reference screenshot — % value + "تجزیه‌پذیر" eco tag optional, eco tag pill uses `brand.orange.tint` background), product image centered, floating circular "+" add-to-cart button (**orange** outline — `brand.orange.primary`, replacing the green outline in the reference, bottom-right of image), price block below (current price bold + strikethrough original price in gray, currency unit "تومان" as small superscript-style glyph next to number).
 
 ---
 
