@@ -1,0 +1,21 @@
+v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  ),
+  Receipt: ({ active }: { active: boolean }) => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? "#fff" : "#9B9B9B"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v16l-3-2-2 2-2-2-2 2-2-2-3 2V4z" />
+      <line x1="9" y1="9" x2="15" y2="9" /><line x1="9" y1="13" x2="15" y2="13" />
+    </svg>
+  ),
+  Person: ({ active }: { active: boolean }) => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? "#fff" : "#9B9B9B"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+    </svg>
+  ),
+  Crosshair: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C3F6E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="3" />
+      <line x1="12" y1="2" x2="12" y2="6" /><line x1="12" y1="18" x2="12" y2="22" />
+      <line x1="2" y1="12" x2="6" y2="12" /
