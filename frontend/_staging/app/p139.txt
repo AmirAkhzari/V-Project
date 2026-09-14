@@ -1,0 +1,19 @@
+ }} />
+                      <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                        <span style={{ fontSize: 11, color: H.textSec, fontFamily: FF }}>تا {fmt(d.deliveryMins)} دقیقه</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={H.textMuted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── PRODUCT PREVIEWS ── */}
+                <div style={{ padding: "12px 16px 0" }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: H.textMuted, fontFamily: FF, marginBottom: 10, textAlign: "right" }}>پیش‌نمایش قیمت سبد شما</div>
+                  {PREVIEW_PRODUCTS.map((p, pi) => {
+                    const linePrice = Math.round(p.basePrice * d.priceMultiplier) * p.qty;
+                    return (
+                      <div key={pi} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                      

@@ -1,0 +1,33 @@
+پ","ج"];
+// unavailable days per month index (0=Shahrivar, 1=Mehr)
+const UNAVAILABLE: Record<number, number[]> = { 0: [26, 29], 1: [5, 12] };
+const TODAY_DAY = 21; // Shahrivar 21
+
+type JalaliMonth = { year: number; month: number; days: number; offset: number };
+const MONTHS_DATA: JalaliMonth[] = [
+  { year: 1405, month: 5, days: 31, offset: 2 }, // Shahrivar (month index 5, 0-based)
+  { year: 1405, month: 6, days: 30, offset: 5 }, // Mehr
+];
+
+type CalendarDay = { day: number; past: boolean; unavailable: boolean };
+
+function buildGrid(mi: number): (CalendarDay | null)[] {
+  const { days, offset } = MONTHS_DATA[mi];
+  const cells: (CalendarDay | null)[] = Array(offset).fill(null);
+  for (let d = 1; d <= days; d++) {
+    const past = mi === 0 && d <= TODAY_DAY;
+    const unavailable = (UNAVAILABLE[mi] ?? []).includes(d);
+    cells.push({ day: d, past, unavailable });
+  }
+  // pad to full rows
+  while (cells.length % 7 !== 0) cells.push(null);
+  return cells;
+}
+
+function JalaliCalendar({ onClose, onConfirm }: {
+  onClose: () => void;
+  onConfirm: (label: string) => void;
+}) {
+  const [mi, setMi] = useState(0);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [c
