@@ -1,0 +1,12 @@
+ap: 10 }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 10, textAlign: "right" }}>
+                <div style={{ width: 22, height: 22, borderRadius: "50%", background: H.primaryLight, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={H.primaryMid} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span style={{ fontSize: 13, color: H.textSec, fontFamily: FF, lineHeight: 1.7, flex: 1 }}>
+                  کالاهای سبد شما نگه داشته می‌شوند و قیمت‌ها بر اساس توزیع‌کننده جدید محاسبه مجدد می‌شوند.
+                </span>
+              </div>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 10, textAlign: "right" }}>
+                <div style={{ width: 22, height: 22, borderRadius: "50%", background: "#FEF3F2", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke
