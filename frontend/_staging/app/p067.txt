@@ -1,0 +1,13 @@
+derRadius: 10, background: H.primaryLight, border: `1.5px solid ${H.primaryMid}`, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                        <Ic.Plus size={16} color={H.primaryMid} />
+                      </button>
+                      <div style={{ textAlign: "center" }}>
+                        <div style={{ fontSize: 15, fontWeight: 800, color: H.textPrimary, fontFamily: FF }}>{fmt(item.qty)}</div>
+                        <div style={{ fontSize: 9, color: H.textMuted, fontFamily: FF }}>کارتن</div>
+                      </div>
+                      {item.qty > 1 ? (
+                        <button onClick={() => dec(item.id)} style={{ width: 32, height: 32, borderRadius: 10, background: "#FFF0F0", border: "1.5px solid #FEB2B2", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" strokeWidth="2.5" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12" /></svg>
+                        </button>
+                      ) : (
+                        <button onClick={() => remove(item.id)} styl
