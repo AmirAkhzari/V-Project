@@ -1,0 +1,17 @@
+alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12" /></svg>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Text info */}
+                <div onClick={() => setDetailProduct(p)} style={{ padding: "10px 12px 12px", textAlign: "right", cursor: "pointer" }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: H.textPrimary, fontFamily: FF, lineHeight: 1.6, marginBottom: 2 }}>{p.name}</div>
+                  <div style={{ fontSize: 11, color: H.textMuted, fontFamily: FF, marginBottom: 8 }}>{p.size}</div>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: H.textPrimary, fontFamily: FF }}>
+                    از {p.price}
+                    <span style={{ fontSize: 10, fontWeight: 400, color: H.textSec, marginRight: 3 }}>تومان</span>
+                  </div>
+                  {p.original && (
+                    <div style={{ fontSize: 11, color: H.textMuted, fontFamily: FF, textDeco

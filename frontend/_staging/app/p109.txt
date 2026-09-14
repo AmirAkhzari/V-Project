@@ -1,0 +1,18 @@
+        </span>
+        </div>
+
+        {/* Product grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, padding: "0 12px", paddingBottom: totalCart > 0 ? 90 : 24 }}>
+          {prods.map(p => {
+            const count = cartCounts[p.id] || 0;
+            const oos = OOS_IDS.has(p.id);
+            return (
+              <div key={p.id} style={{ background: "#fff", borderRadius: 16, border: `1px solid ${oos ? "#FECDCA" : H.border}`, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.05)", opacity: oos ? 0.85 : 1 }}>
+                {/* Image area — tap opens detail sheet */}
+                <div onClick={() => setDetailProduct(p)} style={{ position: "relative", background: "#F8F9FA", cursor: "pointer" }}>
+                  <img src={p.img} alt={p.name} style={{ width: "100%", aspectRatio: "1 / 1", objectFit: "cover", display: "block" }} />
+                  {oos && <div style={{ position: "absolute", inset: 0, background: "rgba(255,255,255,0.4)" }} />}
+
+                  {/* OOS badge */}
+                  {oos ? (
+                    <div style={{ position: "absolute", top: 10, left: 10, background: "#B42318", color: "#fff", fontSize: 10, fon
