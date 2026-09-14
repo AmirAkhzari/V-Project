@@ -1,0 +1,23 @@
+rofile" onTab={onTab} />
+    </MobileShell>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Wallet top-up flow
+// ─────────────────────────────────────────────────────────────────────────────
+function WalletTopUpScreen({ balance, onBack, onPay }: { balance: number; onBack: () => void; onPay: (amount: number) => void }) {
+  const [amount, setAmount] = useState(50_000);
+  const MIN = 10_000;
+  const MAX = 10_000_000;
+  const fmt = (n: number) => n.toLocaleString("fa-IR");
+  const valid = Number.isFinite(amount) && amount >= MIN && amount <= MAX;
+  const adjust = (delta: number) => setAmount(prev => Math.min(MAX, Math.max(MIN, prev + delta)));
+  return (
+    <MobileShell bg="#F5F5F5">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto" }}>
+        <BackHeader onBack={onBack} title="افزایش اعتبار کیف پول" />
+        <div style={{ padding: "16px 20px 28px" }}>
+          <div style={{ background: H.primary, borderRadius: 18, padding: "18px 20px", color: "#fff", marginBottom: 18 }}>
+            <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", fontFamily: FF }}>موجودی فعلی</div>
+            <div sty

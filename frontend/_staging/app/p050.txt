@@ -1,0 +1,17 @@
+ 6, borderRadius: 3, background: "#1C3F6E" }} />
+            </div>
+          </div>
+
+          {/* Wallet + messages card */}
+          <div style={{ background: "#fff", borderRadius: 20, marginBottom: 12, overflow: "hidden" }}>
+            {/* Messages row — RTL: icon+label on RIGHT, info icon on LEFT */}
+            <div role="button" tabIndex={0} onClick={() => showSoon("پیام‌ها")} onKeyDown={e => { if (e.key === "Enter" || e.key === " ") showSoon("پیام‌ها"); }} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 18px", borderBottom: "1px solid #F5F5F5", cursor: "pointer" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                {/* RIGHT start: icon tile + label */}
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: "#F5F5F5", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Ic.MessageCircle color="#9B9B9B" />
+                </div>
+                <span style={{ ...T.bodyMd, color: "#1A1A1A", fontFamily: FF }}>پیام‌ها</span>
+              </div>
+              {/* LEFT end: help icon */}
+              <Ic.Info color="#C0C0C0
