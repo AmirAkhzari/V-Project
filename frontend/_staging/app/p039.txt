@@ -1,0 +1,24 @@
+eight: 72, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: FF, zIndex: 20, flexDirection: "column" }}>
+          <span style={{ ...T.btn, fontFamily: FF }}>تایید موقعیت مکانی</span>
+          <span style={{ ...T.caption, color: "rgba(255,255,255,0.8)", fontFamily: FF, display: "flex", alignItems: "center", gap: 4 }}>
+            <Ic.MapPin size={12} color="rgba(255,255,255,0.8)" />
+            خ. فردوسی
+          </span>
+        </button>
+      </div>
+    </MobileShell>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Screen 6 — Address Details
+// ─────────────────────────────────────────────────────────────────────────────
+function Screen6({ onBack, onSave }: { onBack: () => void; onSave: () => void }) {
+  const [fullAddr, setFullAddr] = useState("خ. فردوسی، بعد از خ. تقوی، خ. گل پرور");
+  const [unit, setUnit] = useState("");
+  const [plaque, setPlaque] = useState("");
+  const [title, setTitle] = useState("");
+  const [tag, setTag] = useState<"store" | "warehouse" | "branch" | null>(null);
+  const [branchName, setBranchName] = useState("");
+
+  const FocusInput = ({ value, onChange, 
