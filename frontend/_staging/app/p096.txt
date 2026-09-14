@@ -1,0 +1,20 @@
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+                <span style={{ fontSize: 22, fontWeight: 900, color: H.textPrimary, fontFamily: FF }}>{product.price}</span>
+                <span style={{ fontSize: 13, color: H.textSec, fontFamily: FF }}>تومان / کارتن</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Last order info */}
+          {product.lastOrder && (
+            <div style={{ display: "flex", alignItems: "center", gap: 10, background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 12, padding: "10px 14px", marginBottom: 20 }}>
+              <div style={{ flex: 1, textAlign: "right" }}>
+                <span style={{ fontSize: 12, color: "#92400E", fontFamily: FF }}>
+                  آخرین سفارش شما:{" "}
+                  <strong>{toFaNum(product.lastOrder.cartons)} کارتن</strong>
+                  {" "}·{" "}
+                  {toFaNum(product.lastOrder.daysAgo)} روز پیش
+                </span>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx=
