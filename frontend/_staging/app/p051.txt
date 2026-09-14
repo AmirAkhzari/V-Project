@@ -1,0 +1,17 @@
+String("fa-IR")} تومان</span></span>
+              </div>
+              {/* LEFT end: top-up button */}
+              <button onClick={onTopUp} style={{ background: "#EBF2FF", border: "none", color: "#1C3F6E", ...T.label, fontFamily: FF, padding: "7px 14px", borderRadius: 20, cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
+                افزایش اعتبار
+                <Ic.Plus size={14} color="#1C3F6E" />
+              </button>
+            </div>
+          </div>
+
+          {transactions.length > 0 && (
+            <div style={{ background: "#fff", borderRadius: 20, marginBottom: 12, padding: "14px 18px" }}>
+              <div style={{ ...T.h3, color: "#1A1A1A", fontFamily: FF, marginBottom: 10 }}>تاریخچه کیف پول</div>
+              {transactions.slice(0, 3).map(tx => (
+                <div key={tx.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderTop: "1px solid #F5F5F5" }}>
+                  <span style={{ fontSize: 12, color: "#15803D", fontWeight: 700, fontFamily: FF }}>+{tx.amount.toLocaleString("fa-IR")} تومان</span>
+                  <span style={{ fontSize: 11, color: "#9B9B9B", fontFamily: FF 
