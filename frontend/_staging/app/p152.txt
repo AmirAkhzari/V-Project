@@ -1,0 +1,29 @@
+n: "absolute", top: "28%", left: "50%", transform: "translateX(-50%)", background: H.primary, color: "#fff", fontSize: 11, fontWeight: 700, fontFamily: FF, padding: "4px 12px", borderRadius: 20, whiteSpace: "nowrap" }}>
+        محل تحویل سفارش
+      </div>
+    </div>
+  );
+}
+
+function CheckoutScreen({ onBack, onPay, cartItems }: { onBack: () => void; onPay: (date: string, total: number) => void; cartItems: CartItem[] }) {
+  const [calOpen, setCalOpen] = useState(false);
+  const [deliveryDate, setDeliveryDate] = useState<string | null>(null);
+
+  const subtotal = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+  const DISCOUNT = cartItems.length > 0 ? Math.round(subtotal * 0.04) : 0;
+  const total = subtotal - DISCOUNT;
+  const totalCartons = cartItems.reduce((s, i) => s + i.qty, 0);
+  const fmt = (n: number) => n.toLocaleString("fa-IR");
+
+  return (
+    <MobileShell bg={H.bg}>
+      {calOpen && (
+        <JalaliCalendar
+          onClose={() => setCalOpen(false)}
+          onConfirm={label => { setDeliveryDate(label); setCalOpen(false); }}
+        />
+      )}
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto" }}>
+        {/* Header */}
+     

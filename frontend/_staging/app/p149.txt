@@ -1,0 +1,16 @@
+lineHeight: 1.7 }}>
+              تاریخ‌های در دسترس بر اساس آدرس تحویل و ظرفیت شرکت توزیع محاسبه می‌شوند.
+            </span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 16, paddingRight: 23 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: "#F2F4F7", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontSize: 11, color: H.textMuted, fontFamily: FF, textDecoration: "line-through" }}>۵</span>
+              </div>
+              <span style={{ fontSize: 11, color: H.textMuted, fontFamily: FF }}>تکمیل / ناموجود</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: H.primaryLight, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontSize: 11, color: H.primaryMid, fontFamily: FF, fontWeight: 800 }}>۱</span>
+              </div>
+              <span style={{ fontSize: 11, color: H.textMuted, fontFamily: FF }}>امروز</s
