@@ -1,0 +1,30 @@
+──────────────────────────────────
+function Screen2({ onNext, onBack }: { onNext: () => void; onBack: () => void }) {
+  const [digits, setDigits] = useState(["", "", "", "", ""]);
+  const [seconds, setSeconds] = useState(119);
+  const [canResend, setCanResend] = useState(false);
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  useEffect(() => {
+    inputRefs.current[0]?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (seconds <= 0) { setCanResend(true); return; }
+    const t = setTimeout(() => setSeconds(s => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [seconds]);
+
+  const toFarsi = (n: number) => n.toString().replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[+d]);
+  const filled = digits.every(d => d !== "");
+
+  // Normalise Persian/Arabic-Indic digits → ASCII
+  const toAsciiDigit = (s: string) =>
+    s.replace(/[۰-۹]/g, d => String(d.charCodeAt(0) - 0x06F0))
+     .replace(/[٠-٩]/g, d => String(d.charCodeAt(0) - 0x0660));
+
+  const handleDigit = (i: number, val: string) => {
+    const normalised = toAsciiDigit(val);
+    // Handle paste: if multiple digits received, distribute across cells
+    const digits_only = normalised.replace(/\D/g, "");
+    if (digits_only.length > 1) 
