@@ -7,7 +7,7 @@ a gift!) larger/bolder, CTA pill button below: "‹ دعوت از دوستان" 
    - "آدرس‌ها" (Addresses) — pin icon
    - "کدهای تخفیف" (Discount codes) — percent-badge icon
    - "کارت‌های هدیه" (Gift cards) — gift icon
-   - "تماس با پشتیبان" (Contact support) — headset icon
+   - "تماس با پشتیبانی" (Contact support) — headset icon
 7. Bottom tab bar, "پروفایل" tab active (colored).
 
 ---
