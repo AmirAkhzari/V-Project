@@ -1,0 +1,12 @@
+# Digikala Jet / Supermarket — UI/UX Rebuild Specification
+**For: Figma Make Agent**
+**Prepared by: Product Design (reverse-engineered from 10 mobile screenshots)**
+**Platform:** Mobile Web (Safari-in-app), RTL, Persian (Farsi) language
+**Domains observed:** `digikalajet.com` (onboarding/checkout-setup surface) → `digikala.com` (core marketplace/hypermarket surface)
+
+---
+
+## 0. How to use this file
+Build screens in the exact order listed under "Screen Specs." Each screen includes: purpose, layout (top→bottom), components, exact copy (Farsi + English gloss), states, and interaction notes. Global tokens and shared components are defined once in Section 1–2 and referenced by name afterward.
+
+**⚠️ Single unified theme — orange only.** The source screenshots were captured across two live surfaces (`digikalajet.com`, orange, screens 1–7, and `digikala.com`, green, screens 8–10), but this is **not** a two-theme product. The final design system uses **one theme: the digikalajet orange system** end-to-end. The green "Hypermarket" screens (Cart, Orders, Home — Screens 8–10) are **reference content only**: rebuild their layout, structure, and copy exactly as captured, but **re-skin every gree

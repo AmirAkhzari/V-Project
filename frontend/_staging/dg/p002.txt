@@ -1,0 +1,10 @@
+ in this document to "green" (Screens 8–10, ported from the `digikala.com` hypermarket reference) must be substituted with the orange equivalents below at build time.
+
+| Token | Hex (approx) | Usage |
+|---|---|---|
+| `brand.orange.primary` | `#F97316` / `#FA6D18` | **All** primary CTAs, active tab icon + label, active states, links-as-buttons, discount badges, "+" add-to-cart buttons, active segmented-control fill (or `text.primary` dark fill per Screen 9 spec) — used everywhere the reference screenshots show orange (1–7) **and** everywhere they show green (8–10) |
+| `brand.orange.tint` | `#FDECD8` | Banner/callout background (invite-friends card), light accent fills, eco-tag pill background (replacing green eco-tag) |
+| `brand.orange.badge` | `#FB8A2E` | Discount % badge fill on product cards (replaces `brand.green.badge`), quick-add "+" button outline/fill on Home carousel |
+| `accent.red.deal` | `#D91E2A` | Deals/percent-off promo banner background (unchanged — this red banner already appears correctly on the Home screenshot and should be kept as-is) |
+| `text.primary` | `#1A1A1A` | Headlines, body |
+| `text.secondary` | `#8A8A8A` / `#9B9B9B` | Placeholder text, helper captions 

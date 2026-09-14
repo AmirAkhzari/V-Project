@@ -1,0 +1,21 @@
+ CTA button: solid fill (brand color), 52–56px height, bold centered white label, no border.
+- Bottom sheets / modals: rounded **top corners only** (20px), slide up from bottom, scrim behind.
+- Cards (promo, product): 12px radius, subtle 1px border or soft shadow, white fill.
+- Dividers: 1px solid `border.default`, full-bleed or inset to text.
+
+### 1.5 Iconography
+- Line-style icons, ~24px, `text.primary` or brand color when active.
+- Bottom tab icons: person (profile), shopping bag (cart), receipt/list (orders), house (home).
+- Illustration style: soft 3D/clay-render emoji-like icons used for empty states and promos (shopping cart 🛒-style render, grocery basket render, megaphone+gift render) — flat vector alternative acceptable if 3D asset unavailable.
+
+### 1.6 Spacing Scale
+`4 / 8 / 12 / 16 / 20 / 24 / 32 / 48px` — use 16px as the standard page gutter and 24px as the standard vertical rhythm between major blocks.
+
+---
+
+## 2. Shared Global Components
+
+### 2.1 Bottom Tab Bar (persists on Profile, Cart, Orders, Home)
+Fixed to bottom, white background, 1px top border, safe-area padding.
+
+RTL visual order (right → left, matching reading direction): **خانه (Home)** far right → **سفارش‌
