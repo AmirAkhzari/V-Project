@@ -1,0 +1,20 @@
+round: H.bg, textAlign: "center", color: H.textPrimary }} />
+              </div>
+            ))}
+            {/* Dev toggle: simulate failure */}
+            <button
+              onClick={() => setShouldFail(f => !f)}
+              style={{ width: "100%", marginBottom: 10, height: 34, borderRadius: 10, border: `1.5px solid ${shouldFail ? "#B42318" : H.border}`, background: shouldFail ? "#FEF3F2" : H.bg, fontSize: 11, fontWeight: 700, color: shouldFail ? "#B42318" : H.textMuted, fontFamily: FF, cursor: "pointer" }}
+            >
+              {shouldFail ? "⚠ شبیه‌سازی خطای پرداخت فعال" : "شبیه‌سازی خطای پرداخت (dev)"}
+            </button>
+            <button onClick={pay} style={{ width: "100%", height: 50, borderRadius: 14, background: H.primary, border: "none", color: "#fff", fontSize: 15, fontWeight: 800, fontFamily: FF, cursor: "pointer" }}>
+              پرداخت
+            </button>
+          </div>
+        )}
+
+        {step === 2 && (
+          <>
+            <div style={{ fontSize: 17, fontWeight: 800, color: H.textPrimary, fontFamily: FF, marginBottom: 8 }}>در حال پردازش پرداخت...</div>
+            <div style={{ marginTop: 20, width: 40, height: 40, borderRadius: "50%", 
