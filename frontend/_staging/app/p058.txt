@@ -1,0 +1,9 @@
+ontWeight: 900, fontFamily: FF }}>SEP</div>
+            <div><div style={{ fontSize: 15, fontWeight: 800, color: H.textPrimary, fontFamily: FF }}>درگاه پرداخت SEP</div><div style={{ fontSize: 11, color: H.textMuted, fontFamily: FF }}>شاپرک · محیط آزمایشی</div></div>
+          </div>
+          <div style={{ background: H.bg, borderRadius: 14, padding: "14px 16px", marginBottom: 18 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}><span style={{ fontSize: 13, fontWeight: 800, color: H.textPrimary, fontFamily: FF }}>ویزیتور</span><span style={{ fontSize: 12, color: H.textMuted, fontFamily: FF }}>پذیرنده</span></div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}><span style={{ fontSize: 16, fontWeight: 900, color: H.primary, fontFamily: FF }}>{fmt(rial)} ریال</span><span style={{ fontSize: 12, color: H.textMuted, fontFamily: FF }}>مبلغ پرداخت</span></div>
+          </div>
+          <div style={{ fontSize: 11, color: H.textMuted, lineHeight: 1.8, fontFamily: FF, textAlign: "right", marginBottom: 18 }}>این یک درگاه شبیه‌سازی‌شده برای نمونه اولیه است و اطلاعات کارت واقعی دریافت نمی‌کند.</div>
+          <butt

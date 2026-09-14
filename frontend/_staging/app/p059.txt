@@ -1,0 +1,14 @@
+on onClick={onSuccess} style={{ width: "100%", height: 50, borderRadius: 13, border: "none", background: H.primary, color: "#fff", fontSize: 14, fontWeight: 800, fontFamily: FF, cursor: "pointer", marginBottom: 10 }}>موفقیت پرداخت</button>
+          <button onClick={onFail} style={{ width: "100%", height: 48, borderRadius: 13, border: `1.5px solid #B42318`, background: "#FEF3F2", color: "#B42318", fontSize: 14, fontWeight: 700, fontFamily: FF, cursor: "pointer" }}>انصراف یا شکست</button>
+        </div>
+      </div>
+    </MobileShell>
+  );
+}
+
+function WalletPaymentFailedScreen({ amount, onRetry, onProfile }: { amount: number; onRetry: () => void; onProfile: () => void }) {
+  return (
+    <MobileShell bg="#F8FAFF">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
+        <div style={{ width: 84, height: 84, borderRadius: "50%", background: "#FEF3F2", border: "3px solid #FECDCA", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20, color: "#B42318", fontSize: 40 }}>×</div>
+        <div style={{ fontSize: 22, fontWeight: 900, color: H.textPrimary, fontFamily: FF, marginBo
