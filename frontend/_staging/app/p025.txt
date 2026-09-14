@@ -1,0 +1,24 @@
+4} />
+          </div>
+          <div style={{ background: "#fff", borderRadius: 14, padding: "12px 14px", display: "flex", alignItems: "center", gap: 8 }}>
+            <Ic.Search size={16} color="#C0C0C0" />
+            <span style={{ ...T.body, color: "#C0C0C0", fontFamily: FF }}>جستجو در انبار</span>
+          </div>
+          {[0, 1].map(i => (
+            <div key={i} style={{ display: "flex", gap: 12, marginTop: 14 }}>
+              {[0, 1].map(j => <div key={j} style={{ flex: 1, height: 110, background: "#E8E8E8", borderRadius: 14 }} />)}
+            </div>
+          ))}
+        </div>
+
+        {/* Scrim */}
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.45)" }} />
+
+        {/* Bottom Sheet */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "#fff", borderRadius: "24px 24px 0 0", direction: "rtl" }}>
+          <div style={{ display: "flex", justifyContent: "center", paddingTop: 12, paddingBottom: 8 }}>
+            <div style={{ width: 36, height: 4, borderRadius: 2, background: "#E3E3E3" }} />
+          </div>
+
+          <div style={{ padding: "0 20px 32px" }}>
+            <div style={{ display: "flex", j
