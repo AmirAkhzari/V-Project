@@ -1,0 +1,8 @@
+> setScreen("map")} onSave={() => setScreen("home")} />;
+    case "profile":      return <Screen7 onTab={goTab} walletBalance={walletBalance} transactions={walletTransactions} toast={profileToast} onTopUp={() => { setProfileToast(""); setScreen("wallet-topup"); }} />;
+    case "wallet-topup": return <WalletTopUpScreen balance={walletBalance} onBack={() => setScreen("profile")} onPay={amount => { setWalletTopUpAmount(amount); setScreen("wallet-gateway"); }} />;
+    case "wallet-gateway": return <WalletGatewayScreen amount={walletTopUpAmount} onSuccess={completeWalletTopUp} onFail={() => setScreen("wallet-failed")} />;
+    case "wallet-failed": return <WalletPaymentFailedScreen amount={walletTopUpAmount} onRetry={() => setScreen("wallet-gateway")} onProfile={() => setScreen("profile")} />;
+    case "cart":         return <Screen8 onBack={() => setScreen("home")} onTab={goTab} onCheckout={() => setScreen("checkout")} items={cartItems} onInc={onInc} onDec={onDec} onRemove={onRemove} onAddItem={onAddItem} />;
+    case "orders":       return <Screen9 onBack={() => setScreen("home")} onTab={goTab} />;
+    case "home":         return <Screen10 onTab={goTab} onDistSelect={() => setScreen("d
