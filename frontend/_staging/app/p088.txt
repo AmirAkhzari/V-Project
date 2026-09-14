@@ -1,0 +1,7 @@
+416-fef01fc43637?w=600&h=600&fit=crop&auto=format", brand: "کاله", category: "لبنیات", subCategory: "ماست", sku: "KL-450-YG", unitsPerCarton: 12, minOrderQty: 2 },
+    { id: "d3", name: "پنیر پیتزای رامک ۴۵۰ گرمی", size: "۴۵۰ گرمی", price: "۸۵,۰۰۰", original: "۹۵,۰۰۰", disc: 11, img: "https://images.unsplash.com/photo-1634487359989-3e90c9432133?w=600&h=600&fit=crop&auto=format", brand: "رامک", category: "لبنیات", subCategory: "پنیر", sku: "RM-450-CH", unitsPerCarton: 8, minOrderQty: 1 },
+    { id: "d4", name: "کره حیوانی صباح ۱۰۰ گرمی", size: "۱۰۰ گرمی", price: "۶۸,۰۰۰", img: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=600&h=600&fit=crop&auto=format", brand: "صباح", category: "لبنیات", subCategory: "کره", sku: "SB-100-BT", unitsPerCarton: 24, minOrderQty: 5 },
+  ],
+  "تنقلات": [
+    { id: "t1", name: "چیپس خانواده ۱۷۰ گرمی", size: "۱۷۰ گرمی", price: "۴۲,۰۰۰", img: "https://images.unsplash.com/photo-1641693148759-843d17ceac24?w=600&h=600&fit=crop&auto=format", brand: "خانواده", category: "تنقلات", subCategory: "چیپس", sku: "KH-170-CH", unitsPerCarton: 24, minOrderQty: 1, lastOrder: { cartons: 6, daysAgo: 20 } },
+    { id: "t2", name: "شکلات کیت‌کت ۴۱.۵ گرمی", siz

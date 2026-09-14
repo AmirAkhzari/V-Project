@@ -1,0 +1,7 @@
+arton: 30, minOrderQty: 3 },
+    { id: "c5", name: "آب معدنی دماوند ۱.۵ لیتری", size: "۱.۵ لیتری", price: "۲۸,۰۰۰", img: "https://images.unsplash.com/photo-1633949698015-0f8a8b261c07?w=600&h=600&fit=crop&auto=format", brand: "دماوند", category: "نوشیدنی", subCategory: "آب معدنی", sku: "DW-1500", unitsPerCarton: 12, minOrderQty: 1, lastOrder: { cartons: 20, daysAgo: 7 } },
+    { id: "c6", name: "آبمیوه سیب طبیعی ۱ لیتری", size: "۱ لیتری", price: "۷۲,۰۰۰", original: "۸۰,۰۰۰", disc: 10, img: "https://images.unsplash.com/photo-1592391303704-f3380c4fa7d0?w=600&h=600&fit=crop&auto=format", brand: "محلی", category: "نوشیدنی", subCategory: "آبمیوه", sku: "AJ-1000-AP", unitsPerCarton: 6, minOrderQty: 2 },
+  ],
+  "لبنیات": [
+    { id: "d1", name: "شیر پاستوریزه میهن ۱ لیتری", size: "۱ لیتری", price: "۴۵,۰۰۰", img: "https://images.unsplash.com/photo-1536238202089-6ce355328a96?w=600&h=600&fit=crop&auto=format", brand: "میهن", category: "لبنیات", subCategory: "شیر", sku: "MH-1000", unitsPerCarton: 12, minOrderQty: 1, lastOrder: { cartons: 8, daysAgo: 5 } },
+    { id: "d2", name: "ماست پاستوریزه کاله ۴۵۰ گرمی", size: "۴۵۰ گرمی", price: "۳۸,۰۰۰", img: "https://images.unsplash.com/photo-1571212515

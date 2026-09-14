@@ -1,0 +1,19 @@
+نقلات", "خواربار و نان"], filters: ["شیر", "ماست", "پنیر", "کره", "بستنی"] },
+  "تنقلات":           { subs: ["تنقلات", "لبنیات و بستنی", "خواربار و نان", "نوشیدنی"], filters: ["چیپس", "پفک", "آجیل", "شکلات", "کاکائو"] },
+  "خواربار":          { subs: ["خواربار و نان", "تنقلات", "کنسرو", "نوشیدنی"], filters: ["برنج", "روغن", "قند و شکر", "آرد", "نمک"] },
+  "بهداشتی":          { subs: ["آرایشی و بهداشتی", "کودک و نوزاد", "خواربار و نان"], filters: ["شامپو", "صابون", "خمیردندان", "مایع ظرفشویی"] },
+  "default":          { subs: ["نوشیدنی", "لبنیات و بستنی", "تنقلات", "خواربار و نان", "میوه و سبزیجات"], filters: ["همه", "پرفروش", "تخفیف‌دار", "جدید"] },
+};
+
+type CatProduct = {
+  id: string; name: string; size: string; price: string;
+  original?: string; disc?: number; img: string;
+  brand: string; category: string; subCategory: string;
+  unitsPerCarton: number; minOrderQty: number;
+  lastOrder?: { cartons: number; daysAgo: number };
+  sku: string;
+};
+
+const catProducts: Record<string, CatProduct[]> = {
+  "نوشیدنی": [
+    { id: "c1", name: "نوشابه پرتقالی فانتا ۳۳۰ میلی‌لیتری", size: "۳۳۰ میلی لیتری", price: "۸۳,۴۰۰", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=
