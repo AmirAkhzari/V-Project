@@ -84,7 +84,7 @@ export class OrderService {
         SELECT id, barcode, price_per_case, stock_in_cases, min_order_qty
         FROM products
         WHERE distributor_id = ${cart.distributorId}::uuid
-          AND id IN (${Prisma.join(productIds)})
+          AND id IN (${Prisma.join(productIds.map((id) => Prisma.sql`${id}::uuid`))})
         ORDER BY id
         FOR UPDATE
       `;
