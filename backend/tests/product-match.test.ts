@@ -30,6 +30,15 @@ describe("matchItemsByBarcode", () => {
     expect(result[0].productId).toBeNull();
   });
 
+  it("marks empty-string barcode as unavailable", () => {
+    const result = matchItemsByBarcode(
+      [{ id: "item-1", barcode: "", qty: 1 }],
+      [{ id: "p-new", barcode: "", pricePerCase: new Prisma.Decimal("10") }],
+    );
+    expect(result[0].availability).toBe("unavailable");
+    expect(result[0].productId).toBeNull();
+  });
+
   it("marks unmatched barcode as unavailable", () => {
     const result = matchItemsByBarcode(
       [{ id: "item-1", barcode: "999", qty: 1 }],

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { authHeader, seedDistributor, seedProduct, seedShopkeeper, startApp } from "./helpers";
+import { authHeader, seedDistributor, seedProduct, seedShopkeeper, selectDistributor, startApp } from "./helpers";
 
 describe("distributor lock", () => {
   it("rejects adding a product from outside cart.distributor_id", async () => {
@@ -20,6 +20,8 @@ describe("distributor lock", () => {
         pricePerCase: "110000",
         stockInCases: 20,
       });
+
+      await selectDistributor(app, shop.token, distA.id);
 
       const first = await app.inject({
         method: "POST",

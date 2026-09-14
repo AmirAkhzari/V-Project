@@ -21,3 +21,5 @@ npm run dev
 ```
 
 Shopkeeper identity is taken only from `Authorization: Bearer <jwt>` (`shopkeeper_id` claim). Client `shopkeeper_id` in body or query is `401`.
+
+Select a distributor with `POST /cart/switch-distributor` before catalog/capacity reads and `POST /cart/items`. Clear the cart with `DELETE /cart` (not `/cart/items`).

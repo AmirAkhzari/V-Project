@@ -64,3 +64,16 @@ export async function seedCapacity(distributorId: string, date: string, slotsRem
 export function authHeader(token: string): { authorization: string } {
   return { authorization: `Bearer ${token}` };
 }
+
+export async function selectDistributor(
+  app: FastifyInstance,
+  token: string,
+  distributorId: string,
+) {
+  return app.inject({
+    method: "POST",
+    url: "/cart/switch-distributor",
+    headers: authHeader(token),
+    payload: { distributor_id: distributorId },
+  });
+}

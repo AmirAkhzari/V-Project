@@ -6,6 +6,7 @@ import {
   seedDistributor,
   seedProduct,
   seedShopkeeper,
+  selectDistributor,
   startApp,
 } from "./helpers";
 
@@ -51,6 +52,7 @@ describe("delivery capacity", () => {
       });
       expect(get.json().message).toBe(CAPACITY_UNAVAILABLE_MESSAGE);
 
+      await selectDistributor(app, shop.token, dist.id);
       await app.inject({
         method: "POST",
         url: "/cart/items",
@@ -82,6 +84,7 @@ describe("delivery capacity", () => {
       const shop = await seedShopkeeper();
       const dist = await seedDistributor("A");
       await seedCapacity(dist.id, "2026-09-25", 7);
+      await selectDistributor(app, shop.token, dist.id);
       const res = await app.inject({
         method: "GET",
         url: `/delivery-capacity?distributor_id=${dist.id}&date=2026-09-25`,

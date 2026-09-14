@@ -7,6 +7,7 @@ import {
   seedDistributor,
   seedProduct,
   seedShopkeeper,
+  selectDistributor,
   startApp,
 } from "./helpers";
 
@@ -47,6 +48,7 @@ describe("server-side prices", () => {
       });
       await seedCapacity(dist.id, "2026-09-20", 3);
 
+      await selectDistributor(app, shop.token, dist.id);
       const add = await app.inject({
         method: "POST",
         url: "/cart/items",

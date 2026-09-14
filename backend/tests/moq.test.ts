@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { authHeader, seedDistributor, seedProduct, seedShopkeeper, startApp } from "./helpers";
+import { authHeader, seedDistributor, seedProduct, seedShopkeeper, selectDistributor, startApp } from "./helpers";
 
 describe("MOQ and cases-only", () => {
   it("rejects qty below min_order_qty with MOQ_NOT_MET", async () => {
@@ -15,6 +15,8 @@ describe("MOQ and cases-only", () => {
         minOrderQty: 5,
         unitsPerCase: 12,
       });
+
+      await selectDistributor(app, shop.token, dist.id);
 
       const res = await app.inject({
         method: "POST",
@@ -42,6 +44,8 @@ describe("MOQ and cases-only", () => {
         minOrderQty: 5,
         unitsPerCase: 12,
       });
+
+      await selectDistributor(app, shop.token, dist.id);
 
       const res = await app.inject({
         method: "POST",

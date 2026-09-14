@@ -6,6 +6,7 @@ import {
   seedDistributor,
   seedProduct,
   seedShopkeeper,
+  selectDistributor,
   startApp,
 } from "./helpers";
 
@@ -23,6 +24,7 @@ describe("order idempotency", () => {
       });
       await seedCapacity(dist.id, "2026-09-22", 4);
 
+      await selectDistributor(app, shop.token, dist.id);
       await app.inject({
         method: "POST",
         url: "/cart/items",
@@ -80,6 +82,7 @@ describe("order idempotency", () => {
       await seedCapacity(dist.id, "2026-09-22", 4);
       await seedCapacity(dist.id, "2026-09-23", 4);
 
+      await selectDistributor(app, shop.token, dist.id);
       await app.inject({
         method: "POST",
         url: "/cart/items",

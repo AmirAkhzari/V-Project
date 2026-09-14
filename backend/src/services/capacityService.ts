@@ -9,10 +9,15 @@ export class CapacityService {
 
   async getCapacity(shopkeeperId: string, distributorId: string, dateValue: string) {
     const date = parseIsoDate(dateValue);
-    return withTenant(this.prisma, { shopkeeperId, distributorId }, async (tx) => {
+    return withTenant(this.prisma, { shopkeeperId }, async (tx) => {
+      const cart = await tx.cart.findUnique({ where: { shopkeeperId } });
+      if (!cart || cart.distributorId !== distributorId) {
+        throw apiError(409, "CAPACITY_UNAVAILABLE", CAPACITY_UNAVAILABLE_MESSAGE);
+      }
+      await tx.$executeRaw`SELECT set_config('app.distributor_id', ${cart.distributorId}, true)`;
       const row = await tx.deliveryCapacity.findUnique({
         where: {
-          distributorId_date: { distributorId, date },
+          distributorId_date: { distributorId: cart.distributorId, date },
         },
       });
       if (!row || row.slotsRemaining <= 0) {

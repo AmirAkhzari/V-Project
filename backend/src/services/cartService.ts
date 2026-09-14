@@ -96,17 +96,31 @@ export class CartService {
     }
 
     return withTenant(this.prisma, { shopkeeperId }, async (tx) => {
-      const product = await tx.product.findUnique({ where: { id: productId } });
-      if (!product) throw apiError(404, "PRODUCT_NOT_FOUND");
-
-      if (qty < product.minOrderQty) {
-        throw apiError(400, "MOQ_NOT_MET");
-      }
-
       let cart = await tx.cart.findUnique({
         where: { shopkeeperId },
         include: cartInclude,
       });
+
+      if (cart) {
+        await tx.$executeRaw`SELECT set_config('app.distributor_id', ${cart.distributorId}, true)`;
+      }
+
+      const product = cart
+        ? await tx.product.findFirst({
+            where: { id: productId, distributorId: cart.distributorId },
+          })
+        : await tx.product.findUnique({ where: { id: productId } });
+
+      if (!product) {
+        if (cart) {
+          throw apiError(400, "DISTRIBUTOR_LOCKED", "one cart = one distributor");
+        }
+        throw apiError(404, "PRODUCT_NOT_FOUND");
+      }
+
+      if (qty < product.minOrderQty) {
+        throw apiError(400, "MOQ_NOT_MET");
+      }
 
       if (cart && cart.distributorId !== product.distributorId) {
         throw apiError(400, "DISTRIBUTOR_LOCKED", "one cart = one distributor");
@@ -221,7 +235,12 @@ export class CartService {
         where: { id: cart.id },
         include: cartInclude,
       });
-      return presentCart(updated);
+      await this.refreshAvailability(tx, distributorId, updated.items);
+      const refreshed = await tx.cart.findUniqueOrThrow({
+        where: { id: cart.id },
+        include: cartInclude,
+      });
+      return presentCart(refreshed);
     });
   }
 
@@ -243,7 +262,7 @@ export class CartService {
       productId: string | null;
       qty: number;
       availability: "available" | "unavailable";
-      product: { stockInCases: number; distributorId: string } | null;
+      product: { stockInCases: number; distributorId: string; minOrderQty: number } | null;
     }>,
   ): Promise<void> {
     for (const item of items) {
@@ -253,7 +272,10 @@ export class CartService {
           : await tx.product.findFirst({
               where: { id: item.productId, distributorId },
             });
-      const available = product != null && product.stockInCases >= item.qty;
+      const available =
+        product != null &&
+        product.stockInCases >= item.qty &&
+        item.qty >= product.minOrderQty;
       const next: "available" | "unavailable" = available ? "available" : "unavailable";
       if (next !== item.availability || (product == null && item.productId != null)) {
         await tx.cartItem.update({

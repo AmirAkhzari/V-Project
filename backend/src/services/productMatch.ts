@@ -23,20 +23,27 @@ export type SwitchItemResult = {
   availability: Availability;
 };
 
+export function usableBarcode(barcode: string | null): string | null {
+  if (barcode == null || barcode === "") return null;
+  return barcode;
+}
+
 export function matchItemsByBarcode(
   items: SwitchItemInput[],
   catalog: CatalogProduct[],
 ): SwitchItemResult[] {
   const byBarcode = new Map<string, CatalogProduct[]>();
   for (const product of catalog) {
-    if (product.barcode == null) continue;
-    const list = byBarcode.get(product.barcode) ?? [];
+    const barcode = usableBarcode(product.barcode);
+    if (barcode == null) continue;
+    const list = byBarcode.get(barcode) ?? [];
     list.push(product);
-    byBarcode.set(product.barcode, list);
+    byBarcode.set(barcode, list);
   }
 
   return items.map((item) => {
-    if (item.barcode == null) {
+    const barcode = usableBarcode(item.barcode);
+    if (barcode == null) {
       return {
         ...item,
         productId: null,
@@ -44,7 +51,7 @@ export function matchItemsByBarcode(
         availability: "unavailable",
       };
     }
-    const matches = byBarcode.get(item.barcode) ?? [];
+    const matches = byBarcode.get(barcode) ?? [];
     if (matches.length !== 1) {
       return {
         ...item,

@@ -5,6 +5,7 @@ import {
   seedDistributor,
   seedProduct,
   seedShopkeeper,
+  selectDistributor,
   startApp,
 } from "./helpers";
 
@@ -38,6 +39,7 @@ describe("unavailable items block checkout", () => {
       });
       await seedCapacity(distB.id, "2026-09-21", 5);
 
+      await selectDistributor(app, shop.token, distA.id);
       await app.inject({
         method: "POST",
         url: "/cart/items",
