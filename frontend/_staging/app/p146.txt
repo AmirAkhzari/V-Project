@@ -1,0 +1,22 @@
+enter", justifyContent: "center" }}>
+            <Ic.ChevronRight size={18} color={mi > 0 ? H.primaryMid : H.textMuted} />
+          </button>
+        </div>
+
+        {/* Week labels */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", padding: "0 12px", marginBottom: 6 }}>
+          {WEEK_LABELS.map(l => (
+            <div key={l} style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: H.textMuted, fontFamily: FF, padding: "4px 0" }}>{l}</div>
+          ))}
+        </div>
+
+        {/* Days grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", padding: "0 12px", gap: "4px 0" }}>
+          {grid.map((cell, i) => {
+            if (!cell) return <div key={i} />;
+            const isSel = selected === cell.day && mi === mi;
+            const isToday = mi === 0 && cell.day === TODAY_DAY;
+            const disabled = cell.past || cell.unavailable;
+            return (
+              <button key={i} onClick={() => !disabled && tap(cell)}
+                style={{ height: 40, borderRadius: 10, border: "none", cursor: disabled ? "default" : "pointer", background: isSel ? H.primary : isToday ? H.primaryLight : "transparent
