@@ -1,0 +1,15 @@
+ustifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+              <button onClick={onAddNew} style={{ display: "flex", alignItems: "center", gap: 6, color: "#1C3F6E", ...T.label, fontFamily: FF, background: "none", border: "none", cursor: "pointer" }}>
+                <Ic.Plus size={16} color="#1C3F6E" />
+                افزودن آدرس
+              </button>
+              <span style={{ ...T.h3, color: "#1A1A1A", fontFamily: FF }}>انتخاب آدرس مغازه</span>
+            </div>
+
+            <div style={{ background: "#F5F5F5", borderRadius: 12, padding: "11px 14px", display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+              <Ic.Search size={16} color="#9B9B9B" />
+              <span style={{ ...T.body, color: "#9B9B9B", fontFamily: FF }}>جستجوی آدرس، محله یا خیابان</span>
+            </div>
+
+            <button onClick={onSelect} style={{ width: "100%", display: "flex", alignItems: "center", gap: 14, padding: "14px 0", background: "none", border: "none", cursor: "pointer", textAlign: "right", borderBottom: "1px solid #F0F0F0" }}>
+              <div style={{ width: 22, height: 22, borderRadius: "50%", border: "2.5px solid #1C3F6E", display: "f

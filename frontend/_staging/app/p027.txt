@@ -1,0 +1,27 @@
+lex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <div style={{ width: 11, height: 11, borderRadius: "50%", background: "#1C3F6E" }} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ ...T.bodyMd, color: "#1A1A1A", fontFamily: FF }}>خانه</div>
+                <div style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF, marginTop: 3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 260 }}>
+                  ولیعصر جنوبی، بل ملکی تبریزی، خ. باختر، خ. ۱۸ متری شمالی...
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </MobileShell>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// City search data & helpers
+// ─────────────────────────────────────────────────────────────────────────────
+const CITIES = [
+  { main: "تهران", sub: "شهر تهران، استان تهران" },
+  { main: "استان تهران", sub: "استان تهران" },
+  { main: "تبریز", sub: "شهر تبریز، استان آذربایجان شرقی" },
+  { main: "اصفهان", sub: "شهر اصفهان، استان اصفهان" },
+  { main: "شیراز", sub: "شهر شیراز، استان فارس" },
+  { ma
