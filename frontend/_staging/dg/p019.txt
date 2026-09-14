@@ -1,0 +1,18 @@
+s (unit, plaque, title, home/work tag)
+      ↓ (tap "ثبت آدرس")
+   → Address saved, returns user to shopping context
+[Screen 7] Profile tab — view account, wallet, orders, addresses, support
+[Screen 8] Cart tab — currently empty
+[Screen 9] Orders tab — currently no orders, 3-way status filter available
+[Screen 10] Home tab — main hypermarket catalog, promos, deals carousel
+```
+
+**Key UX principle to preserve:** address collection is a **linear guided flow** (search → map-pin refine → structured detail form) rather than a single free-text field — this is the core "get-it-right" moment for a grocery-delivery app and should not be collapsed or simplified.
+
+**Visual continuity note:** the user should experience **one consistent brand** across this entire flow — the orange system from Screens 1–7 carries through, unchanged, into Screens 8–10. There is no visible "hand-off" to a different colored app; the green appearance in the original Cart/Orders/Home screenshots is a reference-capture artifact only, not part of the intended design.
+
+---
+
+## 5. Cross-Screen Consistency Rules for the Agent
+
+1. **RTL first:** build every screen mirrored — text right-aligned, "back/next" chevrons pointin

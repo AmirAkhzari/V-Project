@@ -1,0 +1,22 @@
+/ strikethrough, title (e.g. "سفره یکبار مصرف مدل حریر رو...").
+   - Card: "۵۲٪" badge (orange), "KLASSNO" coffee creamer box image, price "286,559 تومان" struck "598,000", title "کافی کریمر کلاسنو بسته 50 عددی".
+   - Card: "۷۰٪" badge (orange) + **orange-tint** "تجزیه‌پذیر" (biodegradable) eco-tag pill (replacing green eco-tag), trash-bag product image, price "167,700 تومان" struck "559,000", title "کیسه زباله 3 رول کوالا - 54 عدد".
+   - Each card has a circular **orange** outline "+" quick-add button overlapping the bottom-right corner of the product image (replacing green outline).
+7. Bottom tab bar, "خانه" tab active — colored **orange** (`brand.orange.primary`), not green as in the reference screenshot.
+
+---
+
+## 4. End-to-End User Flow (as evidenced by screenshots)
+
+```
+[Screen 1] Enter phone number
+      ↓ (tap "ادامه")
+[Screen 2] Enter OTP → auto/manual confirm
+      ↓
+[Screen 3] Address bottom-sheet appears over Home (pick saved "خانه" or add new)
+      ↓ (tap "+ افزودن آدرس")
+[Screen 4] Search address text (e.g. "تهران")
+      ↓ (select a result)
+[Screen 5] Fine-tune exact pin location on map → confirm street
+      ↓ (tap confirm bar)
+[Screen 6] Fill in full address detail
