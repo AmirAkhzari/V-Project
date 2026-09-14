@@ -1,0 +1,21 @@
+width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          تلاش مجدد
+        </button>
+        <button onClick={onBackToCart} style={{ width: "100%", height: 50, borderRadius: 16, background: "transparent", border: `2px solid ${H.primaryMid}`, color: H.primaryMid, fontSize: 14, fontWeight: 700, fontFamily: FF, cursor: "pointer" }}>
+          بازگشت به سبد خرید
+        </button>
+      </div>
+    </MobileShell>
+  );
+}
+
+type Screen = "login" | "otp" | "addr-sheet" | "addr-search" | "map" | "addr-details" | "profile" | "cart" | "orders" | "home" | "dist-select" | "checkout" | "payment-gw" | "payment-failed" | "order-confirmed" | "wallet-topup" | "wallet-gateway" | "wallet-failed";
+
+export default function App() {
+  const [screen, setScreen] = useState<Screen>("login");
+  const [activeDistId, setActiveDistId] = useState("d1");
+  const [orderDeliveryDate, setOrderDeliveryDate] = useState("");
+  const [orderTotal, setOrderTotal] = useState(0);
+  const [cartItems, setCartItems] = useState<CartIt

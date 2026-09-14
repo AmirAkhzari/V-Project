@@ -1,0 +1,19 @@
+
+
+        <div style={{ fontSize: 22, fontWeight: 900, color: H.textPrimary, fontFamily: FF, marginBottom: 10 }}>پرداخت ناموفق</div>
+
+        {/* Trust copy */}
+        <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 14, padding: "14px 16px", marginBottom: 24, width: "100%", display: "flex", alignItems: "flex-start", gap: 10 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15803D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 1 }}>
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span style={{ fontSize: 13, color: "#15803D", fontFamily: FF, lineHeight: 1.7 }}>
+            هیچ مبلغی از حساب شما کسر نشده است. تراکنش شما لغو شد و وجهی برداشته نگردید.
+          </span>
+        </div>
+
+        {/* Meta card */}
+        <div style={{ width: "100%", background: "#fff", borderRadius: 18, border: `1px solid ${H.border}`, padding: "18px 20px", marginBottom: 28, display: "flex", flexDirection: "column", gap: 14 }}>
+          {[
+            { label: "مبلغ پرداخت‌نشده", value: fmt(orderTotal) + " تومان", highlight: true },
+            

@@ -1,0 +1,24 @@
+[]);
+
+  const handleDemo = () => {
+    setIsDemo(true);
+    setCartItems(SEED_ITEMS);
+    setScreen("home");
+  };
+
+  const cartProps = { cartItems, onAddItem, onInc, onDec };
+  const completeWalletTopUp = () => {
+    const amount = walletTopUpAmount;
+    setWalletBalance(prev => prev + amount);
+    setWalletTransactions(prev => [{ id: String(Date.now()), amount, createdAt: "همین الان", status: "success" }, ...prev]);
+    setProfileToast(`پرداخت ${amount.toLocaleString("fa-IR")} تومان با موفقیت انجام شد`);
+    setScreen("profile");
+  };
+
+  switch (screen) {
+    case "login":        return <Screen1 onNext={() => setScreen("otp")} onDemo={handleDemo} />;
+    case "otp":          return <Screen2 onNext={() => setScreen("addr-sheet")} onBack={() => setScreen("login")} />;
+    case "addr-sheet":   return <Screen3 onAddNew={() => setScreen("addr-search")} onSelect={() => setScreen("home")} />;
+    case "addr-search":  return <Screen4 onBack={() => setScreen("addr-sheet")} onSelect={() => setScreen("map")} />;
+    case "map":          return <Screen5 onBack={() => setScreen("addr-search")} onConfirm={() => setScreen("addr-details")} />;
+    case "addr-details": return <Screen6 onBack={() =
