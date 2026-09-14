@@ -12,7 +12,7 @@ Locked product rules mapped to schema, SQL, and API handlers. No extra product d
 | Client `shopkeeper_id` in body/query → 401 | `src/middleware/rejectClientShopkeeper.ts` |
 | App role cannot bypass RLS | migration creates `vproject_app` `NOBYPASSRLS`; `DATABASE_URL` vs `DATABASE_ADMIN_URL` |
 | Before a cart distributor is selected, shopkeepers may list distributors only | `distributors_select` allows authenticated shopkeepers; `products` / `delivery_capacity` SELECT require selected cart or session `app.distributor_id` |
-| After selection, catalog + capacity only for that `distributor_id` | `products_select` / `delivery_capacity_select` (cart.distributor_id or `app.distributor_id`); `GET /delivery-capacity` compares query to cart |
+| After selection, catalog + capacity only for that `distributor_id` | `products_select` / `delivery_capacity_select` (cart.distributor_id or `app.distributor_id`); `GET /delivery-capacity` compares query to cart (`DISTRIBUTOR_MISMATCH` if they differ) |
 
 ## Cart = one distributor
 
@@ -39,7 +39,7 @@ Locked product rules mapped to schema, SQL, and API handlers. No extra product d
 | --- | --- |
 | Atomic transaction | `src/services/cartService.ts` `switchDistributor` inside `withTenant` tx |
 | Match **only** by barcode | `src/services/productMatch.ts` |
-| Null or empty-string barcode → unavailable | `productMatch.ts` (`usableBarcode`) |
+| Null, empty-string, or whitespace-only barcode → unavailable | `productMatch.ts` (`usableBarcode` trims; blank after trim is treated as null) |
 | Duplicate barcode in new distributor → unavailable | `productMatch.ts` (`matches.length !== 1`) |
 | Unmatched → unavailable | `productMatch.ts` |
 | Recalculate prices from DB | matched item `unitPrice = product.pricePerCase` |
@@ -62,7 +62,8 @@ Locked product rules mapped to schema, SQL, and API handlers. No extra product d
 | Dates Gregorian ISO 8601 in DB | `DATE` columns; API `YYYY-MM-DD` |
 | Shamsi display-only | not stored |
 | Capacity `(distributor_id, date, slots_remaining)` | `delivery_capacity` |
-| Empty capacity exact Persian message | `src/constants.ts` `CAPACITY_UNAVAILABLE_MESSAGE`; `GET /delivery-capacity`, `POST /orders` |
+| Empty capacity exact Persian message | `src/constants.ts` `CAPACITY_UNAVAILABLE_MESSAGE`; `GET /delivery-capacity` and `POST /orders` only when capacity is empty/zero for the cart distributor |
+| Query `distributor_id` ≠ selected cart distributor | `GET /delivery-capacity` → `DISTRIBUTOR_MISMATCH` (not the Persian capacity message) |
 | Row locks on stock and slots | `SELECT ... FOR UPDATE` in `orderService.ts` |
 
 ## Idempotency

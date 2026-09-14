@@ -84,7 +84,11 @@ describe("catalog and capacity scoped to selected distributor", () => {
         headers: authHeader(shop.token),
       });
       expect(otherCapacity.statusCode).toBe(409);
-      expect(otherCapacity.json().message).toBe(CAPACITY_UNAVAILABLE_MESSAGE);
+      expect(otherCapacity.json().error).toBe("DISTRIBUTOR_MISMATCH");
+      expect(otherCapacity.json().message).toBe(
+        "distributor_id does not match the selected cart distributor",
+      );
+      expect(otherCapacity.json().message).not.toBe(CAPACITY_UNAVAILABLE_MESSAGE);
 
       const ownCapacity = await app.inject({
         method: "GET",

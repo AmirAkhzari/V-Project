@@ -11,7 +11,14 @@ export class CapacityService {
     const date = parseIsoDate(dateValue);
     return withTenant(this.prisma, { shopkeeperId }, async (tx) => {
       const cart = await tx.cart.findUnique({ where: { shopkeeperId } });
-      if (!cart || cart.distributorId !== distributorId) {
+      if (cart && cart.distributorId !== distributorId) {
+        throw apiError(
+          409,
+          "DISTRIBUTOR_MISMATCH",
+          "distributor_id does not match the selected cart distributor",
+        );
+      }
+      if (!cart) {
         throw apiError(409, "CAPACITY_UNAVAILABLE", CAPACITY_UNAVAILABLE_MESSAGE);
       }
       await tx.$executeRaw`SELECT set_config('app.distributor_id', ${cart.distributorId}, true)`;

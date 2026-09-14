@@ -24,8 +24,10 @@ export type SwitchItemResult = {
 };
 
 export function usableBarcode(barcode: string | null): string | null {
-  if (barcode == null || barcode === "") return null;
-  return barcode;
+  if (barcode == null) return null;
+  const trimmed = barcode.trim();
+  if (trimmed === "") return null;
+  return trimmed;
 }
 
 export function matchItemsByBarcode(

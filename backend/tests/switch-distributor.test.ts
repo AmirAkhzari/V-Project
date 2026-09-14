@@ -242,6 +242,49 @@ describe("POST /cart/switch-distributor", () => {
     }
   });
 
+  it("marks whitespace-only barcode items unavailable", async () => {
+    const app = await startApp();
+    try {
+      const shop = await seedShopkeeper();
+      const distA = await seedDistributor("A");
+      const distB = await seedDistributor("B");
+      const productA = await seedProduct({
+        distributorId: distA.id,
+        name: "Blank space",
+        barcode: " ",
+        pricePerCase: "9000",
+        stockInCases: 10,
+      });
+      await seedProduct({
+        distributorId: distB.id,
+        name: "Also blank space",
+        barcode: " ",
+        pricePerCase: "1000",
+        stockInCases: 10,
+      });
+
+      await selectDistributor(app, shop.token, distA.id);
+      await app.inject({
+        method: "POST",
+        url: "/cart/items",
+        headers: authHeader(shop.token),
+        payload: { product_id: productA.id, qty: 1 },
+      });
+
+      const switched = await app.inject({
+        method: "POST",
+        url: "/cart/switch-distributor",
+        headers: authHeader(shop.token),
+        payload: { distributor_id: distB.id },
+      });
+      expect(switched.statusCode).toBe(200);
+      expect(switched.json().items[0].availability).toBe("unavailable");
+      expect(switched.json().items[0].product_id).toBeNull();
+    } finally {
+      await app.close();
+    }
+  });
+
   it("marks unmatched barcodes unavailable", async () => {
     const app = await startApp();
     try {
