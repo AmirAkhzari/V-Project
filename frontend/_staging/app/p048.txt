@@ -1,0 +1,17 @@
+       <div style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF, marginTop: 3, display: "flex", alignItems: "center", gap: 4 }}>
+                    ۰۹۱۴۳۶۶۲۰۵۱
+                    <Ic.Phone color="#9B9B9B" size={12} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Invite banner — RTL: text on RIGHT (start), icon on LEFT (end) */}
+            <div style={{ background: "linear-gradient(135deg, #EBF2FF 0%, #EBF2FF 100%)", borderRadius: 14, padding: "16px", display: "flex", alignItems: "center", gap: 14, marginBottom: 14 }}>
+              {/* RIGHT start: text block */}
+              <div style={{ flex: 1 }}>
+                <div style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF }}>دوستاتو دعوت کن</div>
+                <div style={{ ...T.h3, color: "#1C3F6E", fontFamily: FF, marginTop: 3 }}>۱۲۰ هزار تومان هدیه بگیر</div>
+                <button style={{ marginTop: 10, background: "#1C3F6E", border: "none", color: "#fff", ...T.label, fontFamily: FF, padding: "7px 16px", borderRadius: 20, cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}>
+                  دعوت از دوستان
+                  <Ic.ChevronL
