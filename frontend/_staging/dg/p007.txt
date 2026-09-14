@@ -1,0 +1,18 @@
+ustration) so illustration sits roughly at vertical-center-upper-third.
+
+### 2.7 Product / Promo Card (Horizontal Carousel)
+Used in Home "شگفت‌انگیز" (Amazing Deals) rail: white card, 12px radius, top-left discount badge (**orange** pill — `brand.orange.badge`, replacing the green badge seen in the reference screenshot — % value + "تخفیه‌پذیر" eco tag optional, eco tag pill uses `brand.orange.tint` background), product image centered, floating circular "+" add-to-cart button (**orange** outline — `brand.orange.primary`, replacing the green outline in the reference, bottom-right of image), price block below (current price bold + strikethrough original price in gray, currency unit "تومان" as small superscript-style glyph next to number).
+
+---
+
+## 3. Screen Specs
+
+---
+
+### Screen 1 — Phone Number Entry (Login)
+**Shell:** Jet (orange) · **Domain:** digikalajet.com
+
+**Layout (top→bottom):**
+1. Header: forward arrow icon, top-right, no title.
+2. Brand wordmark "**سوپرمارکت**" (Supermarket) — large, bold, orange, custom rounded display lettering, centered, ~64px tall, generous top margin (~120px from header).
+3. Label: "لطفا شماره موبایل خود را وارد کنید *" (Please enter your mobile numbe

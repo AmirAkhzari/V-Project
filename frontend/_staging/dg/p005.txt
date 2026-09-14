@@ -1,0 +1,14 @@
+ها (Orders)** → **سبد خرید (Cart)** → **پروفایل (Profile)** far left.
+*(Confirm against screenshots: left-to-right pixel order in captures is Profile, Cart, Orders, Home — build in that literal LTR pixel order since the whole bar is a fixed component row, then let RTL text/icoccupy naturally.)*
+
+Each tab: icon (24px) + label (11–12px) stacked vertically.
+- Active tab: icon + label colored `brand.orange.primary` (applies on **every** screen — Profile, Cart, Orders, and Home all use the orange active-state, replacing the green active-state seen on the Cart/Orders/Home reference screenshots); inactive: `text.secondary`/black outline.
+- Icons: پروفایل = person-circle outline · سبد خرید = shopping bag outline · سفارش‌ها = receipt/list outline · خانه = house outline.
+
+### 2.2 Top Header Pattern
+Two variants seen:
+- **Minimal header:** small forward-pointing arrow icon top-right (functions as "back" in RTL) with no title, large H1 title starts ~24px below it (used on Login, OTP, Address Search, Address Details).
+- **Titled header:** arrow icon top-right + inline page title next to it, e.g. "جزئیات آدرس ←" (used on Address Details confirmation, Cart, Orders).
+
+### 2.3 Text Input Field
+- Fu

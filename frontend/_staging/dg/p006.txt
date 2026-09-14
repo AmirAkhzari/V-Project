@@ -1,0 +1,12 @@
+ll-width, 52–56px height, 1–1.5px border (`border.default`, or `border.focus` cyan when active/focused), 12px radius, 16px inner padding, placeholder in `text.secondary` italic-style example text (e.g. "مثلا 09123456789").
+- Required-field marker: red asterisk `*` before/after the label depending on RTL flow.
+- Inline validation message appears directly below field in `error.red`, small text, no icon.
+
+### 2.4 Primary Button
+Full-bleed within margins, solid brand color, white bold label, 52–56px height, 12–14px radius, centered text, no icon (except where noted).
+
+### 2.5 Bottom Sheet
+Slides up over a dimmed/grayed backdrop of the page beneath it. Rounded top corners, drag/close affordance optional, header row with title + "+ افزودن آدرس" (Add address) secondary action top-left, search input below header, then a scrollable list of selectable rows (radio-style, selected item shows filled orange circle on the right).
+
+### 2.6 Empty State Pattern
+Centered vertically in content area: 3D illustration (~180px) + bold single-line message below it, no CTA button shown in captured states (cart/orders empty states are purely informational). Keep generous top whitespace (~350–400px before ill
