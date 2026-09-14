@@ -1,0 +1,16 @@
+9440159596-0249088772ff?w=200&h=200&fit=crop&auto=format" },
+  { label: "نوشیدنی",          img: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=200&h=200&fit=crop&auto=format" },
+  { label: "دخانیات",          img: "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=200&h=200&fit=crop&auto=format" },
+  { label: "کودک و نوزاد",     img: "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=200&h=200&fit=crop&auto=format" },
+  { label: "آرایشی و بهداشتی", img: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=200&h=200&fit=crop&auto=format" },
+  { label: "کنسرو و غذای آماده",img: "https://images.unsplash.com/photo-1584556812952-905ffd0c611a?w=200&h=200&fit=crop&auto=format" },
+  { label: "چاشنی و افزودنی",  img: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=200&h=200&fit=crop&auto=format" },
+  { label: "صبحانه",           img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=200&h=200&fit=crop&auto=format" },
+];
+
+function fuzzyScore(query: string, target: string): number {
+  if (!query) return 0;
+  const q = query.toLowerCase().trim();
+  const t = target.toLowerCase();
+  if (t.includes(q)) return 2;
+  let

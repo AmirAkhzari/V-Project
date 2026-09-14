@@ -1,0 +1,25 @@
+ 16 }}>
+          <div style={{ padding: 24, background: "#fff", borderRadius: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+            <Ic.Basket color="#E3E3E3" size={90} />
+          </div>
+          <div style={{ ...T.h2, color: "#1A1A1A", fontFamily: FF, textAlign: "center" }}>هنوز سفارشی ثبت نکردی!</div>
+          <div style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF, textAlign: "center", lineHeight: 1.8 }}>
+            {activeTab === "current" ? "سفارش فعالی وجود ندارد" : activeTab === "delivered" ? "هنوز سفارشی تحویل نگرفته‌اید" : "هیچ سفارشی لغو نشده"}
+          </div>
+        </div>
+      </div>
+      <BottomTabBar active="orders" onTab={onTab} />
+    </MobileShell>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// Screen 10 — Home (B2B Distribution)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Professional neutral palette — no loud orange
+const H = {
+  primary:      "#1C3F6E",   // deep navy blue
+  primaryMid:   "#2557A7",   // medium blue (buttons, badges)
+  primaryLight: "#EBF2FF",   // blue tint s

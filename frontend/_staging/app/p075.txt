@@ -1,0 +1,29 @@
+urface
+  accent:       "#0EA5E9",   // sky-blue CTA highlight
+  bg:           "#F2F4F7",   // page background
+  surface:      "#FFFFFF",
+  border:       "#E4E7EC",
+  textPrimary:  "#101828",
+  textSec:      "#667085",
+  textMuted:    "#98A2B3",
+  discount:     "#B42318",   // muted red for discounts
+  discountBg:   "#FEF3F2",
+  success:      "#027A48",
+};
+
+const MinusIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
+    <line x1="5" y1="12" x2="19" y2="12" />
+  </svg>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Search Overlay (shown over Home)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const allProducts = [
+  { id: "s1", name: "آب معدنی دماوند ۱.۵ لیتر", sku: "DW150", price: "۲۸۰,۰۰۰", unit: "× ۱۲ بطری",
+    img: "https://images.unsplash.com/photo-1633949698015-0f8a8b261c07?w=120&h=120&fit=crop&auto=format" },
+  { id: "s2", name: "روغن نباتی اویلا ۱.۸ لیتر", sku: "OL180", price: "۱,۸۵۰,۰۰۰", unit: "× ۶ بطری",
+    img: "https://images.unsplash.com/photo-1552592074-ea7a91b851b3?w=120&h=120&fit=crop&auto=format" },
+  { id:
