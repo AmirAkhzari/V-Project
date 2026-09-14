@@ -1,0 +1,31 @@
+rton, qty: 1 });
+    }
+  };
+  const sub = (id: string) => onDec(id);
+  const toggleWish = (id: string) => setWishlist(p => ({ ...p, [id]: !p[id] }));
+
+  return (
+    <div style={{ position: "absolute", inset: 0, background: H.bg, zIndex: 110, display: "flex", flexDirection: "column" }}>
+
+      {/* Product detail sheet */}
+      {detailProduct && (
+        <ProductDetailSheet
+          product={detailProduct}
+          onClose={() => setDetailProduct(null)}
+          cartTotal={cartTotal}
+          isOOS={OOS_IDS.has(detailProduct.id)}
+          onViewOtherDists={() => { setDetailProduct(null); onClose(); }}
+          onAdd={count => {
+            const existing = cartCounts[detailProduct.id] || 0;
+            if (existing) {
+              for (let i = 0; i < count; i++) onInc(detailProduct.id);
+            } else {
+              onAddItem({ id: detailProduct.id, name: detailProduct.name, price: parsePersianPrice(detailProduct.price), img: detailProduct.img, unitsPerCarton: detailProduct.unitsPerCarton, qty: count });
+            }
+            setDetailProduct(null);
+          }}
+        />
+      )}
+
+      {/* ── STICKY HEADER ── */}
+      <div style={{ background: "#fff", borderBot

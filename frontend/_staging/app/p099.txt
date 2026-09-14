@@ -1,0 +1,17 @@
+olid ${H.primaryMid}`, borderRadius: 16, overflow: "hidden", justifyContent: "space-between" }}>
+              {/* Minus */}
+              <button
+                onClick={() => setQty(q => Math.max(product.minOrderQty, q - 1))}
+                disabled={qty <= product.minOrderQty}
+                style={{ width: 56, height: 56, background: qty <= product.minOrderQty ? H.bg : H.primaryLight, border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: qty <= product.minOrderQty ? "default" : "pointer", flexShrink: 0 }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={qty <= product.minOrderQty ? H.textMuted : H.primaryMid} strokeWidth="2.5" strokeLinecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </button>
+
+              {/* Count display */}
+              <div style={{ flex: 1, textAlign: "center" }}>
+                <div style={{ fontSize: 22, fontWeight: 900, color: H.textPrimary, fontFamily: FF, lineHeight: 1 }}>{toFaNum(qty)}</div>
+                <div style={{ fontSize: 11, color: H.textMuted, fontFamily: FF, marginTop: 3 }}>کارتن</div>
+ 

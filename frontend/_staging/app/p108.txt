@@ -1,0 +1,16 @@
+ter === f ? H.primaryMid : H.border}`, background: activeFilter === f ? H.primaryLight : "#fff", color: activeFilter === f ? H.primaryMid : H.textSec, fontSize: 12, fontWeight: 600, fontFamily: FF, cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0, transition: "all 0.15s" }}>
+              {f}
+            </button>
+          ))}
+        </div>
+
+        {/* Count + filter row */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 16px 14px" }}>
+          <button style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", border: `1px solid ${H.border}`, borderRadius: 20, background: "#fff", cursor: "pointer" }}>
+            <FilterIcon />
+            <span style={{ fontSize: 12, fontWeight: 600, color: H.textSec, fontFamily: FF }}>فیلتر</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={H.textSec} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <span style={{ fontSize: 15, fontWeight: 800, color: H.textPrimary, fontFamily: FF }}>
+            {totalItems.toLocaleString("fa-IR")} کالا
+  
