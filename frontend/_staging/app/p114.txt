@@ -1,0 +1,20 @@
+─────────────────────
+// Distributor data (shared by Screen10 header + DistributorSelectScreen)
+// ─────────────────────────────────────────────────────────────────────────────
+
+type Distributor = {
+  id: string; name: string; logoText: string; logoBg: string;
+  status: "active" | "full";
+  deliveryMins: number; deliveryFee: number | "free";
+  priceMultiplier: number;
+};
+
+const DISTRIBUTORS: Distributor[] = [
+  { id: "d1", name: "شرکت پخش ایران (مرکزی)", logoText: "پخش\nایران", logoBg: "#1C3F6E", status: "active", deliveryMins: 45, deliveryFee: 14_000, priceMultiplier: 1.00 },
+  { id: "d2", name: "توزیع و پخش البرز", logoText: "البرز\nپخش", logoBg: "#2D7DD2", status: "active", deliveryMins: 60, deliveryFee: "free", priceMultiplier: 1.05 },
+  { id: "d3", name: "شرکت توزیع آریا تجارت", logoText: "آریا\nتجارت", logoBg: "#38A169", status: "full", deliveryMins: 90, deliveryFee: "free", priceMultiplier: 0.97 },
+  { id: "d4", name: "پخش پیشرو نوین", logoText: "پیشرو\nنوین", logoBg: "#744210", status: "active", deliveryMins: 30, deliveryFee: 8_000, priceMultiplier: 1.08 },
+];
+
+const PREVIEW_PRODUCTS = [
+  { name: "نوشابه پرتقالی فانتا ۳۳۰ml", qty: 2, basePrice: 83_400, img: "https://images

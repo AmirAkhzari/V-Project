@@ -1,0 +1,16 @@
+sh.com/photo-1536238202089-6ce355328a96?w=300&h=300&fit=crop&auto=format" },
+    { id: "p5", name: "آبمیوه سیب طبیعی", unit: "× ۶ بطری", price: "۴۲۰,۰۰۰", numPrice: 420_000, unitsPerCarton: 6, original: null, disc: 0,
+      img: "https://images.unsplash.com/photo-1592391303704-f3380c4fa7d0?w=300&h=300&fit=crop&auto=format" },
+    { id: "p6", name: "مایع ظرفشویی گلرنگ", unit: "× ۱۲ بطری", price: "۸۸۰,۰۰۰", numPrice: 880_000, unitsPerCarton: 12, original: "۱,۰۲۰,۰۰۰", disc: 14,
+      img: "https://images.unsplash.com/photo-1720468750623-39e9a09f5067?w=300&h=300&fit=crop&auto=format" },
+  ];
+
+  return (
+    <MobileShell bg={H.bg}>
+      {/* Overlays */}
+      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} onCategorySelect={cat => { setSearchOpen(false); setCategoryOpen(cat); }} />}
+      {categoryOpen && <CategoryScreen categoryName={categoryOpen} onClose={() => setCategoryOpen(null)} onCartView={() => { setCategoryOpen(null); onTab("cart"); }} cartItems={cartItems} onAddItem={onAddItem} onInc={onInc} onDec={onDec} />}
+
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto" }}>
+
+        {/* ── HEADER ───────────────────────────────
