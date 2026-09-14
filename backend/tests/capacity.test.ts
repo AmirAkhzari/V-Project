@@ -11,11 +11,12 @@ import {
 } from "./helpers";
 
 describe("delivery capacity", () => {
-  it("returns the exact Persian message when capacity is empty", async () => {
+  it("returns the exact Persian message when capacity is empty on the selected distributor", async () => {
     const app = await startApp();
     try {
       const shop = await seedShopkeeper();
       const dist = await seedDistributor("A");
+      await selectDistributor(app, shop.token, dist.id);
       const res = await app.inject({
         method: "GET",
         url: `/delivery-capacity?distributor_id=${dist.id}&date=2026-09-24`,
@@ -27,6 +28,31 @@ describe("delivery capacity", () => {
       expect(res.json().message).toBe(
         "سرویس توزیع در دسترس برای تاریخ انتخابی موجود نیست، لطفا تاریخ دیگری را انتخاب کنید",
       );
+    } finally {
+      await app.close();
+    }
+  });
+
+  it("returns DISTRIBUTOR_MISMATCH when the query distributor is not the selected cart distributor", async () => {
+    const app = await startApp();
+    try {
+      const shop = await seedShopkeeper();
+      const selected = await seedDistributor("A");
+      const other = await seedDistributor("B");
+      await seedCapacity(other.id, "2026-09-24", 5);
+      await selectDistributor(app, shop.token, selected.id);
+
+      const res = await app.inject({
+        method: "GET",
+        url: `/delivery-capacity?distributor_id=${other.id}&date=2026-09-24`,
+        headers: authHeader(shop.token),
+      });
+      expect(res.statusCode).toBe(409);
+      expect(res.json().error).toBe("DISTRIBUTOR_MISMATCH");
+      expect(res.json().message).toBe(
+        "distributor_id does not match the selected cart distributor",
+      );
+      expect(res.json().message).not.toBe(CAPACITY_UNAVAILABLE_MESSAGE);
     } finally {
       await app.close();
     }
@@ -44,15 +70,17 @@ describe("delivery capacity", () => {
         stockInCases: 20,
       });
       await seedCapacity(dist.id, "2026-09-24", 0);
+      await selectDistributor(app, shop.token, dist.id);
 
       const get = await app.inject({
         method: "GET",
         url: `/delivery-capacity?distributor_id=${dist.id}&date=2026-09-24`,
         headers: authHeader(shop.token),
       });
+      expect(get.statusCode).toBe(409);
+      expect(get.json().error).toBe("CAPACITY_UNAVAILABLE");
       expect(get.json().message).toBe(CAPACITY_UNAVAILABLE_MESSAGE);
 
-      await selectDistributor(app, shop.token, dist.id);
       await app.inject({
         method: "POST",
         url: "/cart/items",
