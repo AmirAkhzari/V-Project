@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Availability {
+  available
+  unavailable
+}
+
+enum OrderStatus {
+  placed
+}
+
+enum PaymentStatus {
+  pending
+}
+
+model Distributor {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  products         Product[]
+  carts            Cart[]
+  orders           Order[]
+  deliveryCapacity DeliveryCapacity[]
+
+  @@map("distributors")
+}
+
+model Shopkeeper {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  carts           Cart[]
+  orders          Order[]
+  orderIdempotency OrderIdempotency[]
+
+  @@map("shopkeepers")
+}
+
+model Product {
+  id            String  @id @default(uuid()) @db.Uuid
+  distributorId String  @map("distributor_id") @db.Uuid
+  /// GTIN/EAN. Partial unique with distributor_id when not null (see migration).
+  barcode       String?
+  name          String
+  /// Server-side case price. Never accept this from the client.
+  pricePerCase  Decimal @map("price_per_case") @db.Decimal(18, 2)
+  /// Inventory is cases/cartons only.
+  stockInCases  Int     @map("stock_in_cases")
+  /// Minimum cases. Independent of units_per_case.
+  minOrderQty   Int     @map("min_order_qty")
+  /// Display-only. Never used for stock, price, MOQ, or totals.
+  unitsPerCase  Int     @map("units_per_case")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  distributor Distributor @relation(fields: [distributorId], references: [id])
+  cartItems   CartItem[]
+  orderItems  OrderItem[]
+
+  @@map("products")
+}
+
+model Cart {
+  id             String    @id @default(uuid()) @db.Uuid
+  shopkeeperId   String    @unique @map("shopkeeper_id") @db.Uuid
+  distributorId  String    @map("distributor_id") @db.Uuid
+  deliveryDate   DateTime? @map("delivery_date") @db.Date
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  shopkeeper  Shopkeeper  @relation(fields: [shopkeeperId], references: [id])
+  distributor Distributor @relation(fields: [distributorId], references: [id])
+  items       CartItem[]
+
+  @@map("carts")
+}
+
+model CartItem {
+  id           String       @id @default(uuid()) @db.Uuid
+  cartId       String       @map("cart_id") @db.Uuid
+  productId    String?      @map("product_id") @db.Uuid
+  barcode      String?
+  /// Quantity in cases (never units).
+  qty          Int
+  /// Last server-side price snapshot from DB (add / switch).
+  unitPrice    Decimal      @map("unit_price") @db.Decimal(18, 2)
+  availability Availability
+  createdAt    DateTime     @default(now()) @map("created_at")
+
+  cart    Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@map("cart_items")
+}
+
+model Order {
+  id            String      @id @default(uuid()) @db.Uuid
+  shopkeeperId  String      @map("shopkeeper_id") @db.Uuid
+  distributorId String      @map("distributor_id") @db.Uuid
+  /// Gregorian ISO 8601 date. Shamsi is display-only.
+  deliveryDate  DateTime    @map("delivery_date") @db.Date
+  total         Decimal     @db.Decimal(18, 2)
+  status        OrderStatus
+  createdAt     DateTime    @default(now()) @map("created_at")
+
+  shopkeeper  Shopkeeper       @relation(fields: [shopkeeperId], references: [id])
+  distributor Distributor      @relation(fields: [distributorId], references: [id])
+  items       OrderItem[]
+  payments    Payment[]
+  idempotency OrderIdempotency[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String  @id @default(uuid()) @db.Uuid
+  orderId   String  @map("order_id") @db.Uuid
+  productId String  @map("product_id") @db.Uuid
+  barcode   String?
+  qty       Int
+  /// Server-computed case price snapshot at placement.
+  unitPrice Decimal @map("unit_price") @db.Decimal(18, 2)
+
+  order   Order   @relation(fields: [orderId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+model DeliveryCapacity {
+  id             String   @id @default(uuid()) @db.Uuid
+  distributorId  String   @map("distributor_id") @db.Uuid
+  /// Gregorian ISO 8601 date.
+  date           DateTime @db.Date
+  slotsRemaining Int      @map("slots_remaining")
+
+  distributor Distributor @relation(fields: [distributorId], references: [id])
+
+  @@unique([distributorId, date])
+  @@map("delivery_capacity")
+}
+
+model Payment {
+  id        String        @id @default(uuid()) @db.Uuid
+  orderId   String        @map("order_id") @db.Uuid
+  amount    Decimal       @db.Decimal(18, 2)
+  status    PaymentStatus
+  createdAt DateTime      @default(now()) @map("created_at")
+
+  order Order @relation(fields: [orderId], references: [id])
+
+  @@map("payments")
+}
+
+model OrderIdempotency {
+  id             String   @id @default(uuid()) @db.Uuid
+  shopkeeperId   String   @map("shopkeeper_id") @db.Uuid
+  idempotencyKey String   @map("idempotency_key")
+  requestHash    String   @map("request_hash")
+  orderId        String?  @map("order_id") @db.Uuid
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  shopkeeper Shopkeeper @relation(fields: [shopkeeperId], references: [id])
+  order      Order?     @relation(fields: [orderId], references: [id])
+
+  @@unique([shopkeeperId, idempotencyKey])
+  @@map("order_idempotency")
+}
