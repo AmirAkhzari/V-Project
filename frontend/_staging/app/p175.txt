@@ -1,9 +1,0 @@
-ist-select")} activeDistId={activeDistId} isDemo={isDemo} {...cartProps} />;
-    case "dist-select":  return <DistributorSelectScreen activeDistId={activeDistId} onSelect={id => { setActiveDistId(id); setScreen("home"); }} onBack={() => setScreen("home")} cartItems={cartItems} onClearCart={onClearCart} />;
-    case "checkout":     return <CheckoutScreen onBack={() => setScreen("cart")} onPay={(date, total) => { setOrderDeliveryDate(date); setOrderTotal(total); setScreen("payment-gw"); }} cartItems={cartItems} />;
-    case "payment-gw":   return <PaymentGatewayScreen onComplete={() => setScreen("order-confirmed")} onFail={() => setScreen("payment-failed")} orderTotal={orderTotal} />;
-    case "payment-failed": return <PaymentFailedScreen orderTotal={orderTotal} onRetry={() => setScreen("payment-gw")} onBackToCart={() => setScreen("cart")} />;
-    case "order-confirmed": return <OrderConfirmedScreen deliveryDate={orderDeliveryDate} total={orderTotal} onHome={() => { onClearCart(); setScreen("home"); }} onOrderDetails={() => setScreen("orders")} />;
-    default:             return <Screen1 onNext={() => setScreen("otp")} onDemo={handleDemo} />;
-  }
-}

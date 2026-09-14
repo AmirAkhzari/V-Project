@@ -1,7 +1,0 @@
-g left for forward-progress, right for drill-down/back navigation, radio/selection indicators on the trailing (right) edge of list rows.
-2. **One theme only — orange:** do not implement a theme switch or carry any green token into the build. Every screen (1–10) uses the single `brand.orange.*` token set from Section 1.2. Screens 8–10 are reconstructed from a green reference but must render entirely in orange, per Section 3's per-screen notes.
-3. **Farsi numerals** everywhere numbers appear in Farsi copy (prices, countdown, percentages, phone numbers as shown in-context).
-4. **Currency formatting:** "تومان" unit rendered as a small stacked/superscript glyph immediately after the number, thousands-separated (e.g. `۲۸۶,۵۵۹ تومان`), with original price shown struck-through in gray directly below or beside the discounted price.
-5. **Empty states are illustration + one-line message only** — no buttons, no secondary text, generous vertical whitespace above.
-6. **Primary buttons are always full-width, solid, 52–56px tall, bold centered label** — never ghost/outline for primary actions; secondary actions use pill-outline or plain text links instead.
-7. **Bottom sheets dim the background** (

@@ -1,6 +1,0 @@
-`1px solid ${H.border}`, marginBottom: 14 }}>
-            <div style={{ fontSize: 12, color: H.textSec, fontFamily: FF, marginBottom: 10 }}>مبلغ دلخواه</div>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", direction: "ltr" }}>
-              <button onClick={() => adjust(-10_000)} aria-label="کاهش مبلغ" style={{ width: 40, height: 40, borderRadius: 12, border: `1px solid ${H.border}`, background: H.bg, color: H.primaryMid, fontSize: 22, cursor: "pointer" }}>−</button>
-              <input value={Number.isFinite(amount) ? fmt(amount) : ""} onChange={e => { const raw = e.target.value.replace(/[,،۰-۹]/g, c => "۰۱۲۳۴۵۶۷۸۹".includes(c) ? String("۰۱۲۳۴۵۶۷۸۹".indexOf(c)) : "").replace(/\D/g, ""); setAmount(raw ? Number(raw) : 0); }} inputMode="numeric" aria-label="مبلغ دلخواه" style={{ flex: 1, margin: "0 10px", height: 44, border: `1.5px solid ${valid ? H.primaryMid : "#E3E3E3"}`, borderRadius: 10, textAlign: "center", fontSize: 17, fontWeight: 800, color: H.textPrimary, fontFamily: FF, outline: "none" }} />
-              <button onClick={() => adjust(10_000)} aria-label="افزایش مبلغ" style={{ width: 40, height: 40, borderRadius: 12, borde

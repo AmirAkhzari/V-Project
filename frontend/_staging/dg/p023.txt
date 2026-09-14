@@ -1,4 +1,0 @@
-ary (Section 6).
-- [ ] Prototype links wired per the flow in Section 4 (phone → OTP → address sheet → search → map → details → back into app; tab bar linking Profile/Cart/Orders/Home).
-- [ ] Validation/disabled/countdown states included on Screens 1 and 2.
-- [ ] Discount badge, eco-tag, and strikethrough-price patterns implemented on the product carousel (Screen 10).
