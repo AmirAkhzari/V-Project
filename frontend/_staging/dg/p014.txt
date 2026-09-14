@@ -1,0 +1,20 @@
+a gift!) larger/bolder, CTA pill button below: "‹ دعوت از دوستان" (Invite friends).
+3. Carousel dots indicator below banner (2 dots, first inactive-small, second active-elongated pill) — implies a swipeable card stack (only 1 of N visible).
+4. List row (own white card): "پیام‌ها" (Messages) label right-aligned + "?" circular help icon left, divider below.
+5. Row: "افزایش موجود +" (Top up) — orange pill/link on far-left, paired inline with "کیف پول: 0 تومان" (Wallet: 0 Toman) label+value right-aligned, wallet icon far-right edge.
+6. New white card block containing a plain vertical list, each row = label (right) + icon (left), divider between each:
+   - "سفارش‌ ها" (Orders) — receipt icon
+   - "آدرس‌ها" (Addresses) — pin icon
+   - "کدهای تخفیف" (Discount codes) — percent-badge icon
+   - "کارت‌های هدیه" (Gift cards) — gift icon
+   - "تماس با پشتیبان" (Contact support) — headset icon
+7. Bottom tab bar, "پروفایل" tab active (colored).
+
+---
+
+### Screen 8 — Cart (Empty State)
+**Theme:** Orange (unified system) · **Reference source:** digikala.com (green) — re-skin to orange
+
+**Layout:**
+1. Header: forward arrow top-right + "سبد خرید" (Cart) title inline.
+2. Bottom tab bar visible, "سبد 

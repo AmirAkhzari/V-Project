@@ -1,0 +1,18 @@
+ "ارسال به خانه ▾" location selector with pin icon, search bar "جستجو در سوپرمارکت 🔍", grayed-out product grid placeholders below.
+
+**Bottom Sheet (foreground):**
+1. Sheet header row: "+ افزودن آدرس" (Add address) link top-left · "انتخاب آدرس تحویل" (Select delivery address) title top-right, bold.
+2. Search input: "جستجوی آدرس، محله یا خیابان 🔍" (Search address, neighborhood, or street) placeholder, full width, light gray fill, rounded.
+3. List row: label "**خانه**" (Home) bold + full address text below in gray, truncated with ellipsis (e.g. "ولیعصر جنوبی، بل ملکی تبریزی، خ. باختر، خ. ۱۸ متری شمال پر...") · **selected-state indicator**: orange ring/filled circle radio on the far right of the row.
+4. Divider line under the row.
+5. Bottom info strip (from backdrop, partially visible): "ارسال به خانه ▾" repeated near sheet's bottom edge — ignore, it's backdrop bleed-through.
+
+---
+
+### Screen 4 — Address Search (Full Screen)
+**Shell:** Jet (orange)
+
+**Layout:**
+1. Header: forward arrow, top-right.
+2. H1: "جستجوی آدرس" (Address search) — bold, large.
+3. Search input, **focused state** (cyan/blue border), pre-filled with typed query "تهران" (Tehran), search icon left-inside, clear "×" i

@@ -1,0 +1,16 @@
+pans underneath it (standard "drag map, not pin" UX pattern).
+5. Transient tooltip bubble above the pin: "نقشه را حرکت دهید!" (Move the map!) — dark rounded tooltip, dismisses after first interaction or a timeout.
+6. Floating circular "locate me" button bottom-right (crosshair/GPS icon) above the CTA.
+7. Bottom sticky bar: orange full-width bar reading "‹ تایید موقعیت مکانی: خ. فردوسی" (Confirm location: Ferdowsi St.) — chevron + street-name update live based on pin position, entire bar is tappable as the primary CTA.
+
+---
+
+### Screen 6 — Address Details Form
+**Shell:** Jet (orange)
+
+**Layout:**
+1. Header bar (gray-tinted band, slightly different from pure white — matches map preview color): "جزئیات آدرس ←" (Address details) title + trailing arrow.
+2. Static map preview thumbnail (non-interactive), same pin styling as Screen 5, ~230px tall, full-bleed width.
+3. Overlaid on the map thumbnail: centered pill button "ویرایش موقعیت مکانی" (Edit location) — orange, floats over the lower-third of the map image.
+4. Label + textarea: "آدرس کامل *" (Full address) — multi-line text field, pre-filled/editable, bordered box, e.g. "خ. فردوسی، بعد از خ. تقوی، خ. گل پرور".
+5. Two side-by-side inpu

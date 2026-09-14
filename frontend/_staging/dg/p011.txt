@@ -1,0 +1,18 @@
+con right-inside.
+4. Results list, each row: back-chevron "‹" icon far-left of row (RTL: points toward opening/drill-in), **bold** primary match text right-aligned (e.g. "تهران"), gray secondary descriptor below it (e.g. "شهر تهران، تهران"), location-pin icon far-right, divider between rows.
+   - Row 1: تهران / شهر تهران، تهران
+   - Row 2: استان تهران / استان تهران
+   - Row 3: شهرستان تهران / شهرستان تهران
+
+**Interaction:** Live-filter list as user types; tapping a row proceeds to map pin placement (Screen 5).
+
+---
+
+### Screen 5 — Pin Location on Map
+**Shell:** Jet (orange)
+
+**Layout:**
+1. Modal-style full-screen map view, dimmed gray strip at very top (status bar area) then header row: "×" close icon top-left, "انتخاب از روی نقشه" (Choose from map) title, forward arrow top-right (global header still present).
+2. Search-on-map input pinned below header: "جستجوی آدرس، محله یا خیابان 🔍".
+3. Interactive map fills remaining space (light gray/white cartographic style, minimal color, labeled streets/POIs in Farsi, hospital/hotel/university icons as small colored markers).
+4. **Fixed center-pin**: a single black pin marker anchored to the exact screen-center, stays centered while the map 
