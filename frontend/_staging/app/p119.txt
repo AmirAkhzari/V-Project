@@ -1,4 +1,4 @@
-─────────────── */}
+──────────────── */}
         <div style={{ background: H.primary, padding: "10px 20px 18px" }}>
           {/* Row 1: store name + cart */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
