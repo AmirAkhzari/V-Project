@@ -1,0 +1,23 @@
+شود
+              </div>
+            </div>
+          )}
+
+          {query && results.length === 0 && (
+            <div style={{ padding: "48px 24px", textAlign: "center" }}>
+              <Ic.SearchEmpty size={64} />
+              <div style={{ ...T.body, color: "#9B9B9B", fontFamily: FF, marginTop: 16 }}>نتیجه‌ای برای «{query}» یافت نشد</div>
+            </div>
+          )}
+
+          {results.map((r, i) => (
+            <button key={i} onClick={() => onSelect(r.main)}
+              style={{ width: "100%", display: "flex", alignItems: "center", padding: "14px 20px", background: "none", border: "none", borderBottom: "1px solid #F5F5F5", cursor: "pointer", gap: 14, textAlign: "right" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#FFF7F2")}
+              onMouseLeave={e => (e.currentTarget.style.background = "none")}
+            >
+              <div style={{ width: 36, height: 36, borderRadius: 10, background: "#EBF2FF", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Ic.MapPin size={18} color="#1C3F6E" />
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ ...T.bod

@@ -1,0 +1,32 @@
+ "شهر پاکدشت، استان تهران" },
+  { main: "شهریار", sub: "شهر شهریار، استان تهران" },
+];
+
+function norm(s: string) {
+  return s.replace(/[‌‍‎‏]/g, "").replace(/ي/g, "ی").replace(/ك/g, "ک").replace(/آ/g, "ا").replace(/أ|إ/g, "ا").toLowerCase();
+}
+
+function scoreCity(city: string, q: string): number {
+  const cn = norm(city), qn = norm(q);
+  if (!qn) return 0;
+  if (cn === qn) return 100;
+  if (cn.startsWith(qn)) return 90;
+  if (cn.includes(qn)) return 70;
+  let ci = 0, qi = 0;
+  while (ci < cn.length && qi < qn.length) { if (cn[ci] === qn[qi]) qi++; ci++; }
+  if (qi === qn.length) return Math.round(50 * (qn.length / cn.length));
+  return 0;
+}
+
+function Highlight({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>;
+  const idx = norm(text).indexOf(norm(query));
+  if (idx !== -1) return (
+    <>{text.slice(0, idx)}<span style={{ color: "#1C3F6E", fontWeight: 800 }}>{text.slice(idx, idx + query.length)}</span>{text.slice(idx + query.length)}</>
+  );
+  return <>{text}</>;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Screen 4 — Address Search
+// ──────────────────────────────────────────────────────────────────────
