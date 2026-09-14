@@ -1,0 +1,29 @@
+dItem: (item: CartItem) => void;
+}) {
+  const [prevAdded, setPrevAdded] = useState<Record<string, boolean>>({});
+
+  const isEmpty = items.length === 0;
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const minMet = total >= MIN_ORDER;
+  const progress = Math.min(total / MIN_ORDER, 1);
+
+  const inc = onInc;
+  const dec = onDec;
+  const remove = onRemove;
+
+  const addPrev = (p: typeof PREV_ORDERS[0]) => {
+    setPrevAdded(pa => ({ ...pa, [p.id]: true }));
+    onAddItem({ ...p, qty: 1 });
+  };
+
+  const fmt = (n: number) => n.toLocaleString("fa-IR");
+
+  return (
+    <MobileShell bg={H.bg}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto" }}>
+
+        {/* ── HEADER ── */}
+        <div style={{ background: H.primary, padding: "14px 20px 18px", flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+            <button onClick={onBack} style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.12)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+              <Ic.ChevronLeft si

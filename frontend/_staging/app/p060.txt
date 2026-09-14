@@ -1,0 +1,17 @@
+─────────────────────────────────────────────────────────────────────
+// Screen 8 — Cart
+// ─────────────────────────────────────────────────────────────────────────────
+
+const DIST_NAME = "شرکت پخش ایران";
+const MIN_ORDER = 500_000; // تومان
+
+type CartItem = {
+  id: string; name: string; price: number; img: string;
+  unitsPerCarton: number; qty: number;
+};
+
+const PREV_ORDERS: Array<{ id: string; name: string; price: number; img: string; unitsPerCarton: number }> = [
+  { id: "pr1", name: "آب معدنی دماوند ۱.۵ لیتری",     price: 28_000,  img: "https://images.unsplash.com/photo-1633949698015-0f8a8b261c07?w=200&h=200&fit=crop&auto=format", unitsPerCarton: 12 },
+  { id: "pr2", name: "نوشابه کوکاکولا ۱.۵ لیتری",      price: 115_900, img: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=200&h=200&fit=crop&auto=format", unitsPerCarton: 12 },
+  { id: "pr3", name: "چیپس خانواده ۱۷۰ گرمی",          price: 42_000,  img: "https://images.unsplash.com/photo-1641693148759-843d17ceac24?w=200&h=200&fit=crop&auto=format", unitsPerCarton: 24 },
+  { id: "pr4", name: "شیر پاستوریزه میهن ۱ لیتری",     price: 45_000,  img: "https://images.unsplash.com/photo-1536238202089-6ce355328a96?w=200&

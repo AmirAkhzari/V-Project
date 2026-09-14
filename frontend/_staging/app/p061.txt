@@ -1,0 +1,26 @@
+h=200&fit=crop&auto=format", unitsPerCarton: 12 },
+];
+
+const SEED_ITEMS: CartItem[] = [
+  { id: "c1", name: "نوشابه پرتقالی فانتا ۳۳۰ میلی‌لیتری", price: 83_400,  img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200&h=200&fit=crop&auto=format", unitsPerCarton: 24, qty: 2 },
+  { id: "c3", name: "نوشابه کوکاکولا ۱.۵ لیتری",           price: 115_900, img: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=200&h=200&fit=crop&auto=format", unitsPerCarton: 12, qty: 1 },
+];
+
+const TrashIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="3 6 5 6 21 6" />
+    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+    <path d="M10 11v6M14 11v6" />
+    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+  </svg>
+);
+
+function Screen8({ onBack, onTab, onCheckout, items, onInc, onDec, onRemove, onAddItem }: {
+  onBack: () => void;
+  onTab: (t: "home" | "cart" | "orders" | "profile") => void;
+  onCheckout: () => void;
+  items: CartItem[];
+  onInc: (id: string) => void;
+  onDec: (id: string) => void;
+  onRemove: (id: string) => void;
+  onAd
