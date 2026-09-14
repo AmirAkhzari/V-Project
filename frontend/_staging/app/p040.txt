@@ -1,0 +1,17 @@
+placeholder, height = 50 }: { value: string; onChange: (v: string) => void; placeholder?: string; height?: number }) => {
+    const [f, setF] = useState(false);
+    return (
+      <input value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
+        onFocus={() => setF(true)} onBlur={() => setF(false)}
+        style={{ width: "100%", height, border: `1.5px solid ${f ? "#1C3F6E" : "#E3E3E3"}`, borderRadius: 12, padding: "0 14px", ...T.body, fontFamily: FF, outline: "none", marginTop: 6, direction: "rtl", background: f ? "#fff" : "#FAFAFA", transition: "all 0.2s" }} />
+    );
+  };
+
+  return (
+    <MobileShell bg="#F5F5F5">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto" }}>
+        {/* Header */}
+        <div style={{ background: "#fff", padding: "8px 20px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #F0F0F0" }}>
+          <div style={{ width: 36 }} />
+          <span style={{ ...T.h3, color: "#1A1A1A", fontFamily: FF }}>جزئیات آدرس</span>
+          <button onClick={onBack} style={{ width: 36, height: 36, borderRadius: "50%", background: "#F5F5F5", border: "no
