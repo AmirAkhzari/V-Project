@@ -1,0 +1,25 @@
+", flexDirection: "column", padding: "20px 20px 32px" }}>
+
+        {/* Brand header */}
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 40, marginBottom: 48 }}>
+          <VisitorLogo />
+        </div>
+
+        {/* Tagline */}
+        <div style={{ marginBottom: 32, textAlign: "right" }}>
+          <h1 style={{ ...T.h1, color: "#1A1A1A", fontFamily: FF, marginBottom: 6 }}>ورود به حساب</h1>
+          <p style={{ ...T.caption, color: "#9B9B9B", fontFamily: FF, lineHeight: 1.7 }}>شماره موبایل خود را وارد کنید</p>
+        </div>
+
+        {/* Phone field */}
+        <div style={{ marginBottom: 8 }}>
+          <label style={{ ...T.label, color: "#1A1A1A", fontFamily: FF, display: "flex", alignItems: "center", gap: 4, marginBottom: 8 }}>
+            <span style={{ color: "#E5342E" }}>*</span> شماره موبایل
+          </label>
+          <div style={{ position: "relative" }}>
+            <FormInput
+              value={phone} onChange={v => { setPhone(v); setError(false); }}
+              placeholder="مثلا ۰۹۱۲۳۴۵۶۷۸۹" type="tel"
+            />
+            <div style={{ position: "absolute", top: "50%", left: 14, transform: "translateY(-50%)" }}>
+              <Ic.
