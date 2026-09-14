@@ -16,7 +16,7 @@
   // Mock OOS: last product in each category is out of stock with current distributor
   const OOS_IDS = new Set([prods[prods.length - 1]?.id]);
 
-  the parsePersianPrice = (s: string) => parseInt(s.replace(/[,،]/g, "").replace(/[۰-۹]/g, c => String(c.charCodeAt(0) - 0x06F0)), 10) || 0;
+  const parsePersianPrice = (s: string) => parseInt(s.replace(/[,،]/g, "").replace(/[۰-۹]/g, c => String(c.charCodeAt(0) - 0x06F0)), 10) || 0;
 
   const add = (id: string, prod?: CatProduct) => {
     if (cartCounts[id]) { onInc(id); }
