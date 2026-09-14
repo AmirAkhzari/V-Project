@@ -1,0 +1,18 @@
+{/* Drag handle */}
+          <div style={{ position: "absolute", top: 6, left: "50%", transform: "translateX(-50%)", width: 36, height: 4, borderRadius: 2, background: "rgba(0,0,0,0.15)" }} />
+        </div>
+
+        {/* ── SCROLLABLE INFO ── */}
+        <div style={{ overflowY: "auto", flex: 1, padding: "18px 20px 24px", direction: "rtl" }}>
+
+          {/* Product name */}
+          <h2 style={{ fontSize: 18, fontWeight: 800, color: H.textPrimary, fontFamily: FF, margin: "0 0 10px", lineHeight: 1.5 }}>
+            {product.name}
+          </h2>
+
+          {/* Breadcrumb */}
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 16, flexWrap: "wrap" }}>
+            <span style={{ fontSize: 13, color: "#1C3F6E", fontWeight: 600, fontFamily: FF }}>{product.brand}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={H.textMuted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+            <span style={{ fontSize: 13, color: "#1C3F6E", fontWeight: 600, fontFamily: FF }}>{product.subCategory}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="non

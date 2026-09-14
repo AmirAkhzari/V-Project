@@ -1,0 +1,28 @@
+n: "relative", background: "#F4F5F7", flexShrink: 0 }}>
+          <img
+            src={product.img}
+            alt={product.name}
+            style={{ width: "100%", height: 280, objectFit: "contain", display: "block", padding: "20px 40px 16px" }}
+          />
+
+          {/* OOS badge */}
+          {isOOS && (
+            <div style={{ position: "absolute", top: 16, left: 16, background: "#B42318", color: "#fff", fontSize: 12, fontWeight: 800, fontFamily: FF, padding: "4px 12px", borderRadius: 10, zIndex: 2 }}>
+              ناموجود
+            </div>
+          )}
+          {/* OOS overlay tint */}
+          {isOOS && (
+            <div style={{ position: "absolute", inset: 0, background: "rgba(255,255,255,0.5)", zIndex: 1, pointerEvents: "none" }} />
+          )}
+
+          {/* Discount badge */}
+          {!isOOS && product.disc && (
+            <div style={{ position: "absolute", top: 16, left: 16, background: "#1C3F6E", color: "#fff", fontSize: 13, fontWeight: 800, fontFamily: FF, padding: "4px 10px", borderRadius: 10 }}>
+              {product.disc}٪
+            </div>
+          )}
+
+          {/* Heart — top-left (LTR left = RTL right) */}
+          <button
+            onCli

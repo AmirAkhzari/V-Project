@@ -1,0 +1,36 @@
+S, onViewOtherDists }: {
+  product: CatProduct;
+  onClose: () => void;
+  onAdd: (count: number) => void;
+  cartTotal: number;
+  isOOS?: boolean;
+  onViewOtherDists?: () => void;
+}) {
+  const [qty, setQty] = useState(product.minOrderQty);
+  const [wished, setWished] = useState(false);
+  const [added, setAdded] = useState(false);
+
+  const totalPrice = priceNum(product.price) * qty;
+  const remaining = Math.max(0, MIN_ORDER - cartTotal);
+  const moqMet = cartTotal >= MIN_ORDER;
+
+  const handleAdd = () => {
+    if (isOOS) return;
+    onAdd(qty);
+    setAdded(true);
+    setTimeout(() => { setAdded(false); onClose(); }, 700);
+  };
+
+  return (
+    /* Dimmed backdrop */
+    <div
+      onClick={onClose}
+      style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.45)", zIndex: 200, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}
+    >
+      {/* Sheet panel — stops click propagation */}
+      <div
+        onClick={e => e.stopPropagation()}
+        style={{ background: "#fff", borderRadius: "22px 22px 0 0", overflow: "hidden", maxHeight: "92%", display: "flex", flexDirection: "column" }}
+      >
+        {/* ── IMAGE ZONE ── */}
+        <div style={{ positio
